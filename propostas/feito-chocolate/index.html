@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feito Chocolate × Grape AI — Agente Cacau</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --grape-primary: #7B52B8;
+  --grape-primary-dark: #5B3B8C;
+  --grape-primary-light: #A47FD4;
+  --grape-accent: #9B7BC8;
+  --grape-green: #4A9B52;
+  --grape-black: #0A0A0F;
+  --grape-dark: #1A1A2E;
+  --grape-gray: #6B7280;
+  --grape-light: #F3F0FF;
+  --grape-white: #FAFAFE;
+  --grape-danger: #EF4444;
+  --grape-warning: #F59E0B;
+  --grape-success: #4A9B52;
+  --grape-border: #E5E7EB;
+  --grape-border-purple: rgba(123,82,184,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:var(--grape-black);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:28px}
+.nav-links{display:flex;list-style:none;gap:28px}
+.nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.3px;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+
+/* HERO */
+#hero{min-height:100vh;background:linear-gradient(135deg,var(--grape-black) 60%,var(--grape-primary-dark));display:grid;grid-template-columns:1fr 1fr;padding:60px 0 0}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;gap:28px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(123,82,184,0.15);border:1px solid var(--grape-border-purple);border-radius:999px;padding:6px 14px;width:fit-content}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--grape-green);animation:blink 1.5s infinite}
+.hero-tag span{font-size:12px;color:var(--grape-accent);font-weight:500;letter-spacing:0.5px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-eyebrow{font-size:13px;color:var(--grape-gray);letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.hero-title{font-family:'Outfit',sans-serif;font-size:54px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1px}
+.hero-title em{font-style:italic;color:var(--grape-accent)}
+.hero-desc{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:480px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--grape-primary);color:#fff;border:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background 0.2s,transform 0.15s}
+.btn-primary:hover{background:var(--grape-primary-dark);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15);padding:14px 28px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:80px 60px}
+.agent-visual{display:flex;flex-direction:column;align-items:center;gap:24px}
+.agent-ring-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:180px;height:180px}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(155,123,200,0.3);animation:pulse-ring 3s ease-out infinite}
+.ring-1{width:180px;height:180px;animation-delay:0s}
+.ring-2{width:140px;height:140px;animation-delay:0.5s}
+@keyframes pulse-ring{0%{transform:scale(0.95);opacity:0.8}100%{transform:scale(1.05);opacity:0.2}}
+.agent-avatar{width:100px;height:100px;border-radius:50%;background:var(--grape-primary);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:42px;font-weight:800;color:#fff;box-shadow:0 0 40px rgba(123,82,184,0.4);z-index:1}
+.agent-name{font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;color:#fff;text-align:center}
+.agent-subtitle{font-size:13px;color:var(--grape-gray);text-align:center}
+.agent-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+.badge{background:rgba(123,82,184,0.15);border:1px solid var(--grape-border-purple);border-radius:999px;padding:4px 12px;font-size:11px;color:var(--grape-accent);font-weight:500}
+
+/* SEÇÃO PADRÃO */
+section{padding:96px 80px}
+.section-label{font-size:11px;color:var(--grape-primary);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:'Outfit',sans-serif;font-size:38px;font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--grape-gray);line-height:1.7;max-width:560px;margin-bottom:48px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* DIAGNÓSTICO */
+#diagnostico{background:#F7F7F9}
+.diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.fluxo{display:flex;flex-direction:column;gap:0}
+.fluxo-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;position:relative}
+.fluxo-item:not(:last-child)::after{content:'';position:absolute;left:14px;top:44px;width:1px;height:calc(100% - 16px);background:var(--grape-border)}
+.fluxo-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+.fluxo-dot.ok{background:#ECFDF5;color:var(--grape-success);border:1.5px solid #BBF7D0}
+.fluxo-dot.warn{background:#FFFBEB;color:var(--grape-warning);border:1.5px solid #FDE68A}
+.fluxo-dot.danger{background:#FEF2F2;color:var(--grape-danger);border:1.5px solid #FECACA}
+.fluxo-content h4{font-size:14px;font-weight:600;margin-bottom:3px}
+.fluxo-content p{font-size:13px;color:var(--grape-gray);line-height:1.5}
+.gargalos{display:flex;flex-direction:column;gap:16px}
+.gargalo-card{background:#fff;border:1px solid var(--grape-border);border-radius:8px;padding:20px 24px;transition:border-left 0.2s,transform 0.2s}
+.gargalo-card:hover{border-left:3px solid var(--grape-primary);transform:translateX(4px)}
+.gargalo-num{font-size:10px;font-weight:700;color:var(--grape-primary);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.gargalo-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.gargalo-card p{font-size:13px;color:var(--grape-gray);line-height:1.55}
+
+/* SOLUÇÃO */
+#solucao{background:#fff}
+.etapas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:32px}
+.etapa-card{background:#F7F7F9;border:1px solid var(--grape-border);border-radius:8px;padding:16px;cursor:pointer;transition:all 0.2s;text-align:left}
+.etapa-card:hover{border-color:var(--grape-primary);background:var(--grape-light)}
+.etapa-card.active{background:var(--grape-primary);border-color:var(--grape-primary);color:#fff}
+.etapa-num{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;opacity:0.6}
+.etapa-card.active .etapa-num{color:rgba(255,255,255,0.7)}
+.etapa-title{font-size:13px;font-weight:700;line-height:1.35}
+.etapa-panel{background:#F7F7F9;border:1px solid var(--grape-border);border-radius:12px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;min-height:320px}
+.panel-info h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin-bottom:12px}
+.panel-info .panel-desc{font-size:14px;color:var(--grape-gray);line-height:1.65;margin-bottom:20px}
+.panel-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.panel-tag{background:var(--grape-light);border:1px solid var(--grape-border-purple);border-radius:999px;padding:4px 12px;font-size:11px;color:var(--grape-primary);font-weight:600}
+.logica{background:#fff;border:1px solid var(--grape-border);border-radius:8px;padding:16px}
+.logica-title{font-size:10px;font-weight:700;color:var(--grape-gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.logica-line{font-family:'DM Mono',monospace;font-size:12px;color:var(--grape-dark);padding:4px 0;border-bottom:1px solid var(--grape-border)}
+.logica-line:last-child{border:none}
+.logica-line .se{color:var(--grape-primary);font-weight:600}
+.wapp-preview{background:#0A0A0F;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.wapp-header{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:4px}
+.wapp-avatar{width:36px;height:36px;border-radius:50%;background:var(--grape-primary);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0}
+.wapp-name{font-size:13px;font-weight:700;color:#fff}
+.wapp-status{font-size:11px;color:var(--grape-green)}
+.wapp-bubble{max-width:88%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.55}
+.wapp-bubble.in{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);border-radius:14px 14px 14px 2px;align-self:flex-start}
+.wapp-bubble.out{background:var(--grape-primary-dark);color:#fff;border-radius:14px 14px 2px 14px;align-self:flex-end}
+
+/* COMPARATIVO */
+#comparativo{background:var(--grape-black);padding:96px 80px}
+#comparativo .section-title{color:#fff}
+#comparativo .section-sub{color:rgba(255,255,255,0.45)}
+.comp-table{width:100%;border-collapse:collapse}
+.comp-table thead tr{border-bottom:1px solid rgba(255,255,255,0.08)}
+.comp-table th{padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--grape-gray);text-align:left}
+.comp-table th:first-child{width:28%}
+.comp-table td{padding:16px 20px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.5}
+.comp-table tr:hover td{background:rgba(255,255,255,0.03)}
+.comp-table .col-dim{color:rgba(255,255,255,0.7);font-weight:600;font-size:13px}
+.comp-table .col-antes{color:var(--grape-danger);opacity:0.85}
+.comp-table .col-depois{color:var(--grape-green)}
+
+/* INTEGRAÇÕES */
+#integracoes{background:#fff}
+.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.int-card{border:1px solid var(--grape-border);border-radius:8px;padding:24px;transition:all 0.2s}
+.int-card:hover{background:var(--grape-light);border-color:var(--grape-border-purple);transform:translateY(-2px)}
+.int-emoji{font-size:32px;margin-bottom:12px}
+.int-name{font-size:15px;font-weight:700;margin-bottom:6px}
+.int-papel{font-size:13px;color:var(--grape-gray);line-height:1.5}
+.int-badge{display:inline-block;margin-top:10px;font-size:10px;font-weight:600;color:var(--grape-warning);background:rgba(245,158,11,0.1);border-radius:999px;padding:3px 10px;letter-spacing:0.5px}
+
+/* INVESTIMENTO */
+#investimento{background:#F7F7F9}
+.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px}
+.inv-card{background:#fff;border:1px solid var(--grape-border);border-radius:12px;padding:36px;position:relative}
+.inv-card.featured{background:var(--grape-primary-dark);border-color:transparent}
+.inv-card.featured *{color:#fff!important}
+.inv-card.featured .inv-item::before{color:var(--grape-accent)!important}
+.inv-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grape-accent);color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:999px;letter-spacing:0.5px;white-space:nowrap}
+.inv-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grape-primary);margin-bottom:8px}
+.inv-card.featured .inv-label{color:rgba(255,255,255,0.6)!important}
+.inv-title{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px}
+.inv-desc{font-size:13px;color:var(--grape-gray);margin-bottom:24px;line-height:1.5}
+.inv-price-block{margin-bottom:24px}
+.inv-setup{font-size:13px;color:var(--grape-gray);margin-bottom:4px}
+.inv-price{font-family:'Outfit',sans-serif;font-size:38px;font-weight:800;color:var(--grape-dark);line-height:1}
+.inv-price span{font-size:15px;font-weight:500;color:var(--grape-gray)}
+.inv-divider{height:1px;background:var(--grape-border);margin:20px 0}
+.inv-card.featured .inv-divider{background:rgba(255,255,255,0.15)!important}
+.inv-items{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.inv-item{font-size:13px;color:var(--grape-dark);padding-left:18px;position:relative;line-height:1.45}
+.inv-item::before{content:'✓';position:absolute;left:0;color:var(--grape-green);font-weight:700}
+.inv-condicoes{font-size:12px;color:var(--grape-gray);line-height:1.5;padding:12px;background:#F7F7F9;border-radius:8px}
+.inv-card.featured .inv-condicoes{background:rgba(255,255,255,0.1)!important;color:rgba(255,255,255,0.7)!important}
+.inv-comparativo{margin-top:48px}
+.comp-mini-title{font-size:13px;font-weight:700;color:var(--grape-dark);margin-bottom:16px}
+.comp-mini-table{width:100%;max-width:860px;border-collapse:collapse;border:1px solid var(--grape-border);border-radius:8px;overflow:hidden}
+.comp-mini-table th{background:#F7F7F9;padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--grape-gray);text-align:left;border-bottom:1px solid var(--grape-border)}
+.comp-mini-table td{padding:14px 20px;font-size:13px;border-bottom:1px solid var(--grape-border);color:var(--grape-dark)}
+.comp-mini-table tr:last-child td{border:none}
+.comp-mini-table .col-cacau{color:var(--grape-primary);font-weight:600}
+
+/* DIFERENCIAIS */
+#diferenciais{background:var(--grape-dark);padding:96px 80px}
+#diferenciais .section-label{color:var(--grape-accent)}
+#diferenciais .section-title{color:#fff}
+#diferenciais .section-sub{color:rgba(255,255,255,0.45)}
+.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dif-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:32px;transition:all 0.25s}
+.dif-card:hover{background:rgba(123,82,184,0.1);border-color:var(--grape-border-purple);transform:translateY(-3px)}
+.dif-num{font-family:'Outfit',sans-serif;font-size:40px;font-weight:800;color:var(--grape-accent);opacity:0.4;line-height:1;margin-bottom:16px}
+.dif-objection{font-size:11px;font-weight:600;color:var(--grape-gray);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.dif-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.35}
+.dif-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65}
+.dif-quote{margin-top:16px;padding:12px 16px;background:rgba(155,123,200,0.1);border-left:2px solid var(--grape-accent);border-radius:0 6px 6px 0;font-size:12px;color:var(--grape-accent);font-style:italic;line-height:1.5}
+
+/* IMPLANTAÇÃO */
+#implantacao{background:#fff}
+.impl-timeline{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.impl-timeline::before{content:'';position:absolute;top:28px;left:5%;right:5%;height:1px;background:var(--grape-border);z-index:0}
+.impl-fase{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px}
+.impl-dot{width:56px;height:56px;border-radius:50%;background:#F7F7F9;border:1.5px solid var(--grape-border);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--grape-gray);margin-bottom:4px}
+.impl-fase.active .impl-dot{background:var(--grape-primary);border-color:var(--grape-primary);color:#fff}
+.impl-semana{font-size:10px;font-weight:700;color:var(--grape-accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.impl-nome{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.3}
+.impl-items{list-style:none;display:flex;flex-direction:column;gap:6px}
+.impl-items li{font-size:12px;color:var(--grape-gray);line-height:1.4;padding-left:14px;position:relative}
+.impl-items li::before{content:'→';position:absolute;left:0;color:var(--grape-primary)}
+.impl-ongoing{font-size:10px;background:var(--grape-light);color:var(--grape-primary);border-radius:999px;padding:3px 10px;font-weight:600;letter-spacing:0.5px;width:fit-content;margin-top:4px}
+
+/* CTA */
+#cta{background:var(--grape-black);padding:120px 80px;text-align:center}
+.cta-label{font-size:11px;color:var(--grape-gray);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.cta-title{font-family:'Outfit',sans-serif;font-size:52px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+.cta-title em{color:var(--grape-accent);font-style:italic}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.4);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#0A0A0F;border-top:1px solid rgba(255,255,255,0.05);padding:24px 80px;display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:rgba(255,255,255,0.25)}
+footer img{height:22px;opacity:0.4}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding-top:60px}
+  .hero-left{padding:60px 32px}
+  .hero-right{padding:40px 32px;display:none}
+  .hero-title{font-size:38px}
+  section{padding:72px 32px}
+  .diag-grid,.etapas-grid,.dif-grid,.impl-timeline,.inv-grid,.int-grid{grid-template-columns:1fr!important}
+  .etapa-panel{grid-template-columns:1fr}
+  #comparativo,#diferenciais{padding:72px 32px}
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .comp-mini-table{font-size:12px}
+  footer{padding:20px 32px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://raw.githubusercontent.com/tharinem/grape-ai-assets/main/Vector-2.png" alt="Grape AI">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#solucao">Solução</a></li>
+    <li><a href="#comparativo">Impacto</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+    <li><a href="#implantacao">Implantação</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <div class="hero-tag-dot"></div>
+      <span>Proposta Exclusiva · Feito Chocolate</span>
+    </div>
+    <p class="hero-eyebrow">Grape AI × Feito Chocolate</p>
+    <h1 class="hero-title">Atendimento que<br><em>nunca para.</em><br>Vendas que escalam.</h1>
+    <p class="hero-desc">O WhatsApp é o maior canal de vendas da Feito Chocolate. A Cacau é a agente de IA que vai atender 100% dos clientes — com o mesmo padrão, a qualquer hora, sem sobrecarregar o time.</p>
+    <div class="hero-ctas">
+      <a href="#solucao" class="btn-primary">Ver a Solução</a>
+      <a href="#investimento" class="btn-ghost">Ver Investimento</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="agent-visual">
+      <div class="agent-ring-wrap">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="agent-avatar">C</div>
+      </div>
+      <div class="agent-name">Cacau 🍫</div>
+      <div class="agent-subtitle">Agente de IA · Feito Chocolate</div>
+      <div class="agent-badges">
+        <span class="badge">24/7</span>
+        <span class="badge">WhatsApp</span>
+        <span class="badge">Shop9</span>
+        <span class="badge">IA Generativa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
+  <div class="reveal">
+    <p class="section-label">Diagnóstico</p>
+    <h2 class="section-title">O que provavelmente<br>está acontecendo hoje</h2>
+    <p class="section-sub">Com base no que conhecemos sobre operações de alto volume no WhatsApp, esses são os gargalos mais comuns — e os mais silenciosos.</p>
+  </div>
+  <div class="diag-grid">
+    <div class="fluxo reveal reveal-delay-1">
+      <div class="fluxo-item">
+        <div class="fluxo-dot ok">✓</div>
+        <div class="fluxo-content"><h4>Captação</h4><p>Lead chega pelo WhatsApp via anúncios, Instagram ou indicação</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot warn">!</div>
+        <div class="fluxo-content"><h4>Triagem inicial</h4><p>Menu automático segmenta em 4 filas — mas só distribui, não resolve</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot danger">✕</div>
+        <div class="fluxo-content"><h4>Primeiro atendimento real</h4><p>Cai em fila humana — sem resposta fora do horário comercial</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot danger">✕</div>
+        <div class="fluxo-content"><h4>Qualificação</h4><p>Cada atendente começa do zero em cada nova conversa</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot warn">!</div>
+        <div class="fluxo-content"><h4>Envio de catálogo e preço</h4><p>Provavelmente feito manualmente, repetindo as mesmas informações várias vezes ao dia</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot danger">✕</div>
+        <div class="fluxo-content"><h4>Fechamento e registro no Shop9</h4><p>Pedido no WhatsApp → lançamento manual no ERP. Retrabalho e risco de erro</p></div>
+      </div>
+      <div class="fluxo-item">
+        <div class="fluxo-dot danger">✕</div>
+        <div class="fluxo-content"><h4>Follow-up e pós-venda</h4><p>Leads que sumiram são esquecidos. Sem reativação estruturada</p></div>
+      </div>
+    </div>
+    <div class="gargalos reveal reveal-delay-2">
+      <div class="gargalo-card">
+        <div class="gargalo-num">G1 · Triagem sem inteligência</div>
+        <h4>O menu distribui, mas não resolve</h4>
+        <p>Em horários de pico ou fora do comercial, o funil provavelmente trava. Tudo que vem depois do menu depende 100% de pessoas.</p>
+      </div>
+      <div class="gargalo-card">
+        <div class="gargalo-num">G2 · Repetição improdutiva</div>
+        <h4>As mesmas perguntas, dezenas de vezes por dia</h4>
+        <p>Preço, disponibilidade, prazo, mínimo para entrega. Energia humana gasta onde a IA poderia atuar.</p>
+      </div>
+      <div class="gargalo-card">
+        <div class="gargalo-num">G3 · Perda silenciosa de leads</div>
+        <h4>Quem não é respondido a tempo, some</h4>
+        <p>Sem follow-up automático, essa perda acontece em silêncio — sem que ninguém consiga medir.</p>
+      </div>
+      <div class="gargalo-card">
+        <div class="gargalo-num">G4 · Qualidade que oscila com o volume</div>
+        <h4>Não é falta de comprometimento — é limite humano</h4>
+        <p>Quando o time está sobrecarregado, o padrão de atendimento varia. A percepção da marca sofre.</p>
+      </div>
+      <div class="gargalo-card">
+        <div class="gargalo-num">G5 · Duplo trabalho entre WhatsApp e Shop9</div>
+        <h4>Pedido nasce no chat, precisa virar registro</h4>
+        <p>Processo manual é candidato certo a erros e atrasos no processamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section id="solucao">
+  <div class="reveal">
+    <p class="section-label">Solução</p>
+    <h2 class="section-title">Conheça a Cacau</h2>
+    <p class="section-sub">O agente de IA da Feito Chocolate. Cada etapa do fluxo, resolvida com inteligência real.</p>
+  </div>
+  <div class="etapas-grid reveal reveal-delay-1">
+    <div class="etapa-card active" onclick="showEtapa(0,this)">
+      <div class="etapa-num">Etapa 01</div>
+      <div class="etapa-title">Recepção Inteligente</div>
+    </div>
+    <div class="etapa-card" onclick="showEtapa(1,this)">
+      <div class="etapa-num">Etapa 02</div>
+      <div class="etapa-title">Qualificação e Triagem</div>
+    </div>
+    <div class="etapa-card" onclick="showEtapa(2,this)">
+      <div class="etapa-num">Etapa 03</div>
+      <div class="etapa-title">Dúvidas Frequentes</div>
+    </div>
+    <div class="etapa-card" onclick="showEtapa(3,this)">
+      <div class="etapa-num">Etapa 04</div>
+      <div class="etapa-title">Fechamento e Shop9</div>
+    </div>
+    <div class="etapa-card" onclick="showEtapa(4,this)">
+      <div class="etapa-num">Etapa 05</div>
+      <div class="etapa-title">Escalada para Humano</div>
+    </div>
+  </div>
+  <div class="etapa-panel reveal reveal-delay-2" id="etapa-panel">
+    <!-- preenchido via JS -->
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section id="comparativo">
+  <div class="reveal">
+    <p class="section-label">Impacto</p>
+    <h2 class="section-title">Antes e depois da Cacau</h2>
+    <p class="section-sub">O que muda na operação — dimensão por dimensão.</p>
+  </div>
+  <table class="comp-table reveal reveal-delay-1">
+    <thead>
+      <tr>
+        <th>Dimensão</th>
+        <th>Hoje · sem Grape AI</th>
+        <th>Com a Cacau · Grape AI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="col-dim">Primeira resposta</td><td class="col-antes">Minutos, horas ou sem resposta fora do horário</td><td class="col-depois">Segundos · 24h por dia, 7 dias por semana</td></tr>
+      <tr><td class="col-dim">Horário de atendimento</td><td class="col-antes">Seg–Sex 9h–18h · Sáb 9h–12h</td><td class="col-depois">Ininterrupto — a Cacau nunca dorme</td></tr>
+      <tr><td class="col-dim">Triagem e qualificação</td><td class="col-antes">Menu que só distribui filas — cada atendente começa do zero</td><td class="col-depois">A Cacau coleta nome, intenção e tipo de compra antes de qualquer humano entrar</td></tr>
+      <tr><td class="col-dim">Dúvidas frequentes</td><td class="col-antes">Respondidas manualmente, dezenas de vezes ao dia</td><td class="col-depois">Respondidas instantaneamente, com precisão e tom de marca consistente</td></tr>
+      <tr><td class="col-dim">Registro do pedido</td><td class="col-antes">Fechado no WhatsApp → lançado manualmente no Shop9</td><td class="col-depois">Registrado automaticamente no Shop9 ao final da conversa</td></tr>
+      <tr><td class="col-dim">Follow-up de leads frios</td><td class="col-antes">Leads que pararam de responder são esquecidos</td><td class="col-depois">Reativação automática em até 2h e 24h dentro do fluxo receptivo</td></tr>
+      <tr><td class="col-dim">Carga da equipe</td><td class="col-antes">Time sobrecarregado com volume alto e qualidade oscilante</td><td class="col-depois">Equipe atua só nos casos que precisam de humano — com contexto já coletado</td></tr>
+      <tr><td class="col-dim">Consistência da experiência</td><td class="col-antes">Varia conforme o dia, o atendente e o volume</td><td class="col-depois">Padrão de marca garantido em 100% das interações</td></tr>
+      <tr><td class="col-dim">Pós-venda e recompra</td><td class="col-antes">Sem acompanhamento após a entrega</td><td class="col-depois">Sequência automática de satisfação conectada ao Shop9</td></tr>
+      <tr><td class="col-dim">Visibilidade do pipeline</td><td class="col-antes">Difícil saber quantos leads entraram, responderam ou sumiram</td><td class="col-depois">Volume, conversão e gargalos visíveis em tempo real</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- INTEGRAÇÕES -->
+<section id="integracoes">
+  <div class="reveal">
+    <p class="section-label">Integrações</p>
+    <h2 class="section-title">Ferramentas que trabalham juntas</h2>
+    <p class="section-sub">A Cacau se conecta ao ecossistema da Feito Chocolate — sem substituir o que já funciona.</p>
+  </div>
+  <div class="int-grid">
+    <div class="int-card reveal reveal-delay-1">
+      <div class="int-emoji">📱</div>
+      <div class="int-name">WhatsApp Business API</div>
+      <div class="int-papel">Canal principal da Cacau — entrada e saída de 100% das interações com os clientes</div>
+    </div>
+    <div class="int-card reveal reveal-delay-2">
+      <div class="int-emoji">🤖</div>
+      <div class="int-name">OpenAI / Claude (IA)</div>
+      <div class="int-papel">Cérebro do agente — compreensão de linguagem natural, respostas inteligentes e base de conhecimento dinâmica</div>
+    </div>
+    <div class="int-card reveal reveal-delay-3">
+      <div class="int-emoji">⚙️</div>
+      <div class="int-name">n8n</div>
+      <div class="int-papel">Motor de automação central — orquestra todos os fluxos entre WhatsApp, IA e Shop9</div>
+    </div>
+    <div class="int-card reveal reveal-delay-1">
+      <div class="int-emoji">🛒</div>
+      <div class="int-name">Shop9 (ERP)</div>
+      <div class="int-papel">Registro automático de pedidos fechados no WhatsApp e consulta de estoque em tempo real</div>
+      <div class="int-badge">⚡ A confirmar API</div>
+    </div>
+    <div class="int-card reveal reveal-delay-2">
+      <div class="int-emoji">📊</div>
+      <div class="int-name">CRM</div>
+      <div class="int-papel">Centralização do histórico de clientes e pipeline de vendas — a definir conforme o sistema utilizado</div>
+      <div class="int-badge">🔍 A confirmar</div>
+    </div>
+    <div class="int-card reveal reveal-delay-3">
+      <div class="int-emoji">📈</div>
+      <div class="int-name">Google Sheets</div>
+      <div class="int-papel">Dashboard de acompanhamento de volume de atendimentos e conversões em tempo real</div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+<section id="investimento">
+  <div class="reveal">
+    <p class="section-label">Investimento</p>
+    <h2 class="section-title">Um agente. Resultado claro.</h2>
+    <p class="section-sub">Modelo por agente — você sabe exatamente o que está contratando e o que vai receber.</p>
+  </div>
+  <div class="inv-grid reveal reveal-delay-1">
+    <div class="inv-card">
+      <div class="inv-label">Setup · Implantação única</div>
+      <div class="inv-title">Agente Cacau</div>
+      <div class="inv-desc">Configuração completa do agente, integrações e treinamento</div>
+      <div class="inv-price-block">
+        <div class="inv-price">R$ 4.997</div>
+      </div>
+      <div class="inv-divider"></div>
+      <div class="inv-items">
+        <div class="inv-item">Mapeamento e configuração do fluxo completo</div>
+        <div class="inv-item">Desenvolvimento do agente Cacau</div>
+        <div class="inv-item">Base de conhecimento com produtos e FAQs reais</div>
+        <div class="inv-item">Integração WhatsApp Business API</div>
+        <div class="inv-item">Integração com Shop9 via API</div>
+        <div class="inv-item">CRM e canais de atendimento Grape AI</div>
+        <div class="inv-item">Testes, ajustes e go-live supervisionado</div>
+        <div class="inv-item">Treinamento da equipe</div>
+      </div>
+      <div class="inv-condicoes">💳 50% na assinatura + 50% no go-live</div>
+    </div>
+    <div class="inv-card featured">
+      <div class="inv-badge">Recorrência mensal</div>
+      <div class="inv-label">Mensalidade · ongoing</div>
+      <div class="inv-title">Manutenção e Evolução</div>
+      <div class="inv-desc">A Cacau continua melhorando todo mês com base nos dados reais</div>
+      <div class="inv-price-block">
+        <div class="inv-price">R$ 1.997<span>/mês</span></div>
+      </div>
+      <div class="inv-divider"></div>
+      <div class="inv-items">
+        <div class="inv-item">Monitoramento contínuo do agente</div>
+        <div class="inv-item">Atualizações de fluxo e base de conhecimento</div>
+        <div class="inv-item">Relatório mensal de performance</div>
+        <div class="inv-item">Suporte via WhatsApp</div>
+        <div class="inv-item">Otimizações com base nos dados reais</div>
+        <div class="inv-item">Reunião mensal de alinhamento</div>
+      </div>
+      <div class="inv-condicoes">Payback em ~2,5 meses</div>
+    </div>
+  </div>
+  <div class="inv-comparativo reveal reveal-delay-2">
+    <p class="comp-mini-title">Por que a Cacau custa menos do que um funcionário:</p>
+    <table class="comp-mini-table">
+      <thead><tr><th>Comparativo</th><th>Funcionário CLT</th><th>Agente Cacau</th></tr></thead>
+      <tbody>
+        <tr><td>Custo mensal</td><td>~R$ 3.000–3.500</td><td class="col-cacau">R$ 1.997</td></tr>
+        <tr><td>Horário de trabalho</td><td>44h/semana</td><td class="col-cacau">24h/dia · 7 dias/semana</td></tr>
+        <tr><td>Férias · 13º · Afastamento</td><td>Sim</td><td class="col-cacau">Não</td></tr>
+        <tr><td>Consistência</td><td>Varia com volume e humor</td><td class="col-cacau">100% padronizado</td></tr>
+        <tr><td>Payback</td><td>Não tem</td><td class="col-cacau">~2,5 meses</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="reveal">
+    <p class="section-label">Por que a Grape AI</p>
+    <h2 class="section-title">As dúvidas que todo<br>mundo tem — respondidas.</h2>
+    <p class="section-sub">Três objeções reais. Três respostas honestas.</p>
+  </div>
+  <div class="dif-grid">
+    <div class="dif-card reveal reveal-delay-1">
+      <div class="dif-num">01</div>
+      <div class="dif-objection">Objeção · "É muito caro"</div>
+      <div class="dif-title">Quanto custa não resolver esse problema?</div>
+      <div class="dif-desc">Imagina contratar mais uma pessoa no comercial pra dar conta do volume. Essa pessoa custaria em torno de R$ 3.000/mês só entre salário e encargos — e ainda tira férias, fica doente e tem dias ruins. A Cacau custa R$ 1.997/mês, trabalha 24/7 e nunca varia.</div>
+      <div class="dif-quote">"Não é um custo. É a contratação mais barata e mais produtiva que sua empresa vai fazer."</div>
+    </div>
+    <div class="dif-card reveal reveal-delay-2">
+      <div class="dif-num">02</div>
+      <div class="dif-objection">Objeção · "Vai substituir minha equipe"</div>
+      <div class="dif-title">A Cacau não substitui pessoas — libera elas</div>
+      <div class="dif-desc">Não tiramos ninguém do time. A Cacau assume o volume repetitivo — as mesmas perguntas de sempre, os redirecionamentos, os horários fora do comercial. Sua equipe atua onde faz diferença: negociações complexas, clientes estratégicos, decisões que precisam de julgamento humano.</div>
+      <div class="dif-quote">"Seu time não vai perder espaço. Vai ganhar fôlego."</div>
+    </div>
+    <div class="dif-card reveal reveal-delay-3">
+      <div class="dif-num">03</div>
+      <div class="dif-objection">Objeção · "Já tentei chatbot e não funcionou"</div>
+      <div class="dif-title">Isso não é chatbot — é um agente com inteligência real</div>
+      <div class="dif-desc">Chatbot responde comandos. A Cacau entende contexto. A diferença é enorme na prática: chatbot trava quando o cliente escreve diferente do esperado. A Cacau interpreta intenção, adapta a resposta e aprende com as interações reais. E a Grape AI não entrega e some — acompanha e otimiza mensalmente.</div>
+      <div class="dif-quote">"Chatbot é uma árvore de decisão. A Cacau é uma atendente treinada — que nunca esquece o que aprendeu."</div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLANTAÇÃO -->
+<section id="implantacao">
+  <div class="reveal">
+    <p class="section-label">Implantação</p>
+    <h2 class="section-title">Do contrato ao go-live:<br>8 semanas.</h2>
+    <p class="section-sub">Um processo estruturado para que a Cacau entre ao vivo com segurança e já gere resultado desde o primeiro dia.</p>
+  </div>
+  <div class="impl-timeline reveal reveal-delay-1">
+    <div class="impl-fase active">
+      <div class="impl-dot">1</div>
+      <div class="impl-semana">Semanas 1–2</div>
+      <div class="impl-nome">Discovery & Setup</div>
+      <ul class="impl-items">
+        <li>Mapeamento do fluxo de atendimento</li>
+        <li>Levantamento de produtos e FAQs</li>
+        <li>Acesso às ferramentas</li>
+        <li>Configuração dos ambientes</li>
+      </ul>
+    </div>
+    <div class="impl-fase active">
+      <div class="impl-dot">2</div>
+      <div class="impl-semana">Semanas 3–4</div>
+      <div class="impl-nome">Construção</div>
+      <ul class="impl-items">
+        <li>Desenvolvimento da Cacau</li>
+        <li>Treino da base de conhecimento</li>
+        <li>Integração WhatsApp API</li>
+        <li>Integração Shop9</li>
+      </ul>
+    </div>
+    <div class="impl-fase">
+      <div class="impl-dot">3</div>
+      <div class="impl-semana">Semanas 5–6</div>
+      <div class="impl-nome">Testes & Ajustes</div>
+      <ul class="impl-items">
+        <li>Simulações internas</li>
+        <li>Testes com leads reais</li>
+        <li>Refinamento de mensagens</li>
+        <li>Treinamento da equipe</li>
+      </ul>
+    </div>
+    <div class="impl-fase">
+      <div class="impl-dot">4</div>
+      <div class="impl-semana">Semanas 7–8</div>
+      <div class="impl-nome">Go Live</div>
+      <ul class="impl-items">
+        <li>Operação autônoma da Cacau</li>
+        <li>Monitoramento intensivo</li>
+        <li>Ajustes em tempo real</li>
+        <li>Relatório de primeiros resultados</li>
+      </ul>
+    </div>
+    <div class="impl-fase">
+      <div class="impl-dot">5</div>
+      <div class="impl-semana">Mensal · Ongoing</div>
+      <div class="impl-nome">Otimização Contínua</div>
+      <ul class="impl-items">
+        <li>Relatório de performance</li>
+        <li>Ajustes de fluxo e base</li>
+        <li>Reunião de alinhamento</li>
+      </ul>
+      <span class="impl-ongoing">recorrente</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="reveal">
+    <p class="cta-label">Próximo passo</p>
+    <h2 class="cta-title">Pronto para colocar<br>a <em>Cacau</em> pra trabalhar?</h2>
+    <p class="cta-sub">Uma conversa rápida para alinhar os detalhes e dar o primeiro passo. Sem compromisso.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5541992194182" class="btn-primary" target="_blank">Falar com a Grape AI no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Grape AI × Feito Chocolate · 2026</p>
+  <img src="https://raw.githubusercontent.com/tharinem/grape-ai-assets/main/Vector-2.png" alt="Grape AI">
+</footer>
+
+<script>
+const etapas = [
+  {
+    num: '01', titulo: 'Recepção Inteligente',
+    desc: 'A Cacau recepciona 100% das mensagens recebidas, identifica se é cliente novo ou recorrente e personaliza a saudação. Substitui o menu atual com uma experiência mais fluida — sem travar em opções fixas.',
+    tags: ['WhatsApp Business API', 'IA Conversacional'],
+    logica: [
+      {se: 'SE', cond: 'cliente novo', entao: '→ apresentação + coleta de nome + menu de intenção'},
+      {se: 'SE', cond: 'cliente recorrente', entao: '→ saudação personalizada + atalho direto ao pedido'},
+      {se: 'SEMPRE', cond: '', entao: '→ resposta em segundos · 24h por dia · 7 dias por semana'},
+    ],
+    msgs: [
+      {tipo:'in', txt:'Oi, tudo bem?'},
+      {tipo:'out', txt:'Oi! Eu sou a Cacau, assistente da Feito Chocolate 🍫 Com quem eu tenho o prazer de falar? Vou te ajudar rapidinho!'},
+    ]
+  },
+  {
+    num: '02', titulo: 'Qualificação e Triagem',
+    desc: 'Entende o perfil e a necessidade do cliente antes de qualquer atendimento humano. A Cacau coleta as informações certas para que, se precisar escalar, o atendente já saiba exatamente com quem está falando e o que precisa.',
+    tags: ['IA Conversacional', 'Qualificação Automática'],
+    logica: [
+      {se: 'SE', cond: 'cliente sabe o que quer', entao: '→ coleta produto, quantidade e avança para o pedido'},
+      {se: 'SE', cond: 'cliente está em dúvida sobre o produto', entao: '→ faz perguntas de uso e sugere a melhor opção'},
+      {se: 'SE', cond: 'cliente é novo na confeitaria', entao: '→ encaminha para atendente com contexto coletado'},
+      {se: 'SE', cond: 'demanda é financeiro ou pedido em aberto', entao: '→ fila humana prioritária com histórico'},
+    ],
+    msgs: [
+      {tipo:'in', txt:'Oi, quero comprar chocolate mas não sei qual'},
+      {tipo:'out', txt:'Boa pergunta! 🍫 Me conta: você vai usar pra fazer bombom, cobertura ou trabalhar com modelagem? Assim te indico o melhor produto com o melhor custo-benefício.'},
+      {tipo:'in', txt:'Vou fazer bombom e trufas'},
+      {tipo:'out', txt:'Perfeito! Pra bombons e trufas, o Callebaut 811 é o mais pedido aqui — resultado incrível e fácil de trabalhar. Quer ver o preço e disponibilidade?'},
+    ]
+  },
+  {
+    num: '03', titulo: 'Dúvidas Frequentes',
+    desc: 'Responde automaticamente as perguntas mais comuns — preços, disponibilidade, marcas, prazo de entrega, pedido mínimo — sem acionar nenhum humano.',
+    tags: ['Base de Conhecimento', 'IA Generativa', 'Catálogo Dinâmico'],
+    logica: [
+      {se: 'SE', cond: 'pergunta está na base', entao: '→ responde instantaneamente com precisão'},
+      {se: 'SE', cond: 'pergunta fora da base', entao: '→ escala para atendente com contexto coletado'},
+      {se: 'SEMPRE', cond: '', entao: '→ registra a pergunta para enriquecer a base'},
+    ],
+    msgs: [
+      {tipo:'in', txt:'Qual o preço do Callebaut 811?'},
+      {tipo:'out', txt:'O Callebaut 811 está disponível em 1kg e 2,5kg 🍫 O 1kg está R$ XX,XX. Quer adicionar ao pedido?'},
+    ]
+  },
+  {
+    num: '04', titulo: 'Fechamento e Shop9',
+    desc: 'Conduz o cliente até o fechamento do pedido dentro do WhatsApp e registra automaticamente no Shop9, eliminando o retrabalho manual da equipe.',
+    tags: ['Integração Shop9', 'Automação de Pedidos', 'n8n'],
+    logica: [
+      {se: 'SE', cond: 'cliente confirma itens', entao: '→ gera resumo do pedido para validação'},
+      {se: 'SE', cond: 'cliente aprova', entao: '→ cria pedido automaticamente no Shop9'},
+      {se: 'SE', cond: 'cliente quer ajustar', entao: '→ retorna ao fluxo de seleção'},
+      {se: 'SEMPRE', cond: '', entao: '→ envia confirmação com número do pedido'},
+    ],
+    msgs: [
+      {tipo:'in', txt:'Pode confirmar o pedido!'},
+      {tipo:'out', txt:'Pedido registrado com sucesso ✅ Número: #4521. Em breve nossa equipe confirma o prazo. Posso te ajudar com mais alguma coisa?'},
+    ]
+  },
+  {
+    num: '05', titulo: 'Escalada para Humano',
+    desc: 'Identifica os momentos em que o atendimento humano agrega mais valor e faz a passagem de forma fluida — com todo o contexto já coletado, sem o cliente precisar repetir nada.',
+    tags: ['Escalada Contextual', 'WhatsApp Business API'],
+    logica: [
+      {se: 'SE', cond: 'cliente pede atendente', entao: '→ escala imediatamente com resumo da conversa'},
+      {se: 'SE', cond: 'dúvida fora da base', entao: '→ escala com contexto coletado'},
+      {se: 'SE', cond: 'pedido corporativo complexo', entao: '→ escalada prioritária'},
+      {se: 'SEMPRE', cond: '', entao: '→ atendente recebe: nome, intenção, produtos e histórico'},
+    ],
+    msgs: [
+      {tipo:'in', txt:'Quero falar com um humano'},
+      {tipo:'out', txt:'Claro, [Nome]! Vou te conectar agora 🍫 Já passei todo o contexto — você não vai precisar repetir nada. Um momento!'},
+    ]
+  }
+];
+
+function showEtapa(i, el) {
+  document.querySelectorAll('.etapa-card').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const e = etapas[i];
+  const logicaHtml = e.logica.map(l =>
+    `<div class="logica-line"><span class="se">${l.se}</span>${l.cond ? ' '+l.cond+' ' : ' '}${l.entao}</div>`
+  ).join('');
+  const msgsHtml = e.msgs.map(m =>
+    `<div class="wapp-bubble ${m.tipo}">${m.txt}</div>`
+  ).join('');
+  const tagsHtml = e.tags.map(t => `<span class="panel-tag">${t}</span>`).join('');
+  document.getElementById('etapa-panel').innerHTML = `
+    <div class="panel-info">
+      <p style="font-size:11px;color:var(--grape-primary);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px">Etapa ${e.num}</p>
+      <h3>${e.titulo}</h3>
+      <p class="panel-desc">${e.desc}</p>
+      <div class="panel-tags">${tagsHtml}</div>
+      <div class="logica">
+        <div class="logica-title">Lógica de decisão</div>
+        ${logicaHtml}
+      </div>
+    </div>
+    <div class="wapp-preview">
+      <div class="wapp-header">
+        <div class="wapp-avatar">C</div>
+        <div>
+          <div class="wapp-name">Cacau · Feito Chocolate</div>
+          <div class="wapp-status">● online agora</div>
+        </div>
+      </div>
+      ${msgsHtml}
+    </div>`;
+}
+
+showEtapa(0, document.querySelector('.etapa-card'));
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
