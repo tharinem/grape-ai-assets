@@ -109,6 +109,7 @@ section{padding:96px 80px}
 .etapa-panel{background:#F7F7F9;border:1px solid var(--grape-border);border-radius:12px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;min-height:320px}
 .panel-info h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin-bottom:12px}
 .panel-info .panel-desc{font-size:14px;color:var(--grape-gray);line-height:1.65;margin-bottom:20px}
+.panel-result{font-size:13px;color:var(--grape-primary);font-style:italic;line-height:1.5;padding:10px 14px;background:var(--grape-light);border-left:2px solid var(--grape-primary);border-radius:0 6px 6px 0;margin-bottom:20px}
 .panel-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .panel-tag{background:var(--grape-light);border:1px solid var(--grape-border-purple);border-radius:999px;padding:4px 12px;font-size:11px;color:var(--grape-primary);font-weight:600}
 .logica{background:#fff;border:1px solid var(--grape-border);border-radius:8px;padding:16px}
@@ -124,6 +125,20 @@ section{padding:96px 80px}
 .wapp-bubble{max-width:88%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.55}
 .wapp-bubble.in{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85);border-radius:14px 14px 14px 2px;align-self:flex-start}
 .wapp-bubble.out{background:var(--grape-primary-dark);color:#fff;border-radius:14px 14px 2px 14px;align-self:flex-end}
+
+/* CACAU + SHOP9 (nova seção) */
+#cacau-shop9{background:#fff;padding:96px 80px}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+.cs-card{background:#F7F7F9;border:1px solid var(--grape-border);border-radius:10px;padding:24px;transition:all 0.25s}
+.cs-card:hover{background:#fff;border-color:var(--grape-border-purple);transform:translateY(-2px);box-shadow:0 6px 24px rgba(123,82,184,0.08)}
+.cs-emoji{font-size:28px;margin-bottom:12px}
+.cs-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.cs-desc{font-size:13px;color:var(--grape-gray);line-height:1.6}
+.cs-quote{margin-top:32px;padding:24px 32px;background:var(--grape-dark);border-radius:12px;text-align:center}
+.cs-quote p{font-family:'Outfit',sans-serif;font-size:18px;font-style:italic;color:#fff;line-height:1.5;font-weight:500}
+.cs-quote p::before,.cs-quote p::after{color:var(--grape-accent);font-weight:800}
+.cs-quote p::before{content:'“ '}
+.cs-quote p::after{content:' ”'}
 
 /* COMPARATIVO */
 #comparativo{background:var(--grape-black);padding:96px 80px}
@@ -147,7 +162,10 @@ section{padding:96px 80px}
 .int-emoji{font-size:32px;margin-bottom:12px}
 .int-name{font-size:15px;font-weight:700;margin-bottom:6px}
 .int-papel{font-size:13px;color:var(--grape-gray);line-height:1.5}
-.int-badge{display:inline-block;margin-top:10px;font-size:10px;font-weight:600;color:var(--grape-warning);background:rgba(245,158,11,0.1);border-radius:999px;padding:3px 10px;letter-spacing:0.5px}
+.int-badge{display:inline-block;margin-top:10px;font-size:10px;font-weight:600;letter-spacing:0.5px;border-radius:999px;padding:3px 10px}
+.int-badge.confirmed{color:var(--grape-success);background:rgba(74,155,82,0.1)}
+.int-prereq{margin-top:24px;font-size:12px;color:var(--grape-gray);line-height:1.55;font-style:italic;max-width:840px}
+.int-prereq strong{font-weight:600;color:var(--grape-dark);font-style:normal}
 
 /* INVESTIMENTO */
 #investimento{background:#F7F7F9}
@@ -202,10 +220,13 @@ section{padding:96px 80px}
 .impl-dot{width:56px;height:56px;border-radius:50%;background:#F7F7F9;border:1.5px solid var(--grape-border);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--grape-gray);margin-bottom:4px}
 .impl-fase.active .impl-dot{background:var(--grape-primary);border-color:var(--grape-primary);color:#fff}
 .impl-semana{font-size:10px;font-weight:700;color:var(--grape-accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.impl-nome{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.3}
+.impl-nome{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.impl-tagline{font-size:11px;color:var(--grape-gray);font-style:italic;line-height:1.4;margin-bottom:8px}
 .impl-items{list-style:none;display:flex;flex-direction:column;gap:6px}
 .impl-items li{font-size:12px;color:var(--grape-gray);line-height:1.4;padding-left:14px;position:relative}
 .impl-items li::before{content:'→';position:absolute;left:0;color:var(--grape-primary)}
+.impl-items li.sub{padding-left:28px;font-size:11px}
+.impl-items li.sub::before{content:'•';color:var(--grape-accent);left:14px}
 .impl-ongoing{font-size:10px;background:var(--grape-light);color:var(--grape-primary);border-radius:999px;padding:3px 10px;font-weight:600;letter-spacing:0.5px;width:fit-content;margin-top:4px}
 
 /* CTA */
@@ -228,9 +249,9 @@ footer img{height:22px;opacity:0.4}
   .hero-right{padding:40px 32px;display:none}
   .hero-title{font-size:38px}
   section{padding:72px 32px}
-  .diag-grid,.etapas-grid,.dif-grid,.impl-timeline,.inv-grid,.int-grid{grid-template-columns:1fr!important}
+  .diag-grid,.etapas-grid,.dif-grid,.impl-timeline,.inv-grid,.int-grid,.cs-grid{grid-template-columns:1fr!important}
   .etapa-panel{grid-template-columns:1fr}
-  #comparativo,#diferenciais{padding:72px 32px}
+  #comparativo,#diferenciais,#cacau-shop9{padding:72px 32px}
   nav{padding:0 24px}
   .nav-links{display:none}
   .comp-mini-table{font-size:12px}
@@ -281,7 +302,7 @@ footer img{height:22px;opacity:0.4}
       <div class="agent-badges">
         <span class="badge">24/7</span>
         <span class="badge">WhatsApp</span>
-        <span class="badge">Shop9</span>
+        <span class="badge">Shop Control 9</span>
         <span class="badge">IA Generativa</span>
       </div>
     </div>
@@ -319,7 +340,7 @@ footer img{height:22px;opacity:0.4}
       </div>
       <div class="fluxo-item">
         <div class="fluxo-dot danger">✕</div>
-        <div class="fluxo-content"><h4>Fechamento e registro no Shop9</h4><p>Pedido no WhatsApp → lançamento manual no ERP. Retrabalho e risco de erro</p></div>
+        <div class="fluxo-content"><h4>Fechamento e registro no Shop Control 9</h4><p>Pedido no WhatsApp → lançamento manual no ERP. Retrabalho e risco de erro</p></div>
       </div>
       <div class="fluxo-item">
         <div class="fluxo-dot danger">✕</div>
@@ -348,7 +369,7 @@ footer img{height:22px;opacity:0.4}
         <p>Quando o time está sobrecarregado, o padrão de atendimento varia. A percepção da marca sofre.</p>
       </div>
       <div class="gargalo-card">
-        <div class="gargalo-num">G5 · Duplo trabalho entre WhatsApp e Shop9</div>
+        <div class="gargalo-num">G5 · Duplo trabalho entre WhatsApp e Shop Control 9</div>
         <h4>Pedido nasce no chat, precisa virar registro</h4>
         <p>Processo manual é candidato certo a erros e atrasos no processamento.</p>
       </div>
@@ -378,7 +399,7 @@ footer img{height:22px;opacity:0.4}
     </div>
     <div class="etapa-card" onclick="showEtapa(3,this)">
       <div class="etapa-num">Etapa 04</div>
-      <div class="etapa-title">Fechamento e Shop9</div>
+      <div class="etapa-title">Fechamento e Shop Control 9</div>
     </div>
     <div class="etapa-card" onclick="showEtapa(4,this)">
       <div class="etapa-num">Etapa 05</div>
@@ -387,6 +408,50 @@ footer img{height:22px;opacity:0.4}
   </div>
   <div class="etapa-panel reveal reveal-delay-2" id="etapa-panel">
     <!-- preenchido via JS -->
+  </div>
+</section>
+
+<!-- CACAU + SHOP CONTROL 9 (nova seção) -->
+<section id="cacau-shop9">
+  <div class="reveal">
+    <p class="section-label">Em ação · Cacau + Shop Control 9</p>
+    <h2 class="section-title">A Cacau e o seu ERP,<br>conversando em tempo real</h2>
+    <p class="section-sub">A integração com o Shop Control 9 não é só "registrar o pedido depois". É a Cacau usando os dados do seu ERP <strong>durante</strong> a conversa — pra entregar respostas certas, ofertas relevantes e fechar venda sem fricção.</p>
+  </div>
+  <div class="cs-grid">
+    <div class="cs-card reveal reveal-delay-1">
+      <div class="cs-emoji">🔍</div>
+      <div class="cs-title">Consulta estoque ao vivo</div>
+      <div class="cs-desc">Antes de prometer um produto, a Cacau verifica disponibilidade real no Shop Control 9. Sem cliente frustrado por compra de produto sem estoque.</div>
+    </div>
+    <div class="cs-card reveal reveal-delay-2">
+      <div class="cs-emoji">💰</div>
+      <div class="cs-title">Aplica a tabela de preço correta</div>
+      <div class="cs-desc">Cliente atacado, varejo, promoção — a Cacau identifica e cobra exatamente o que está cadastrado, sem erro humano.</div>
+    </div>
+    <div class="cs-card reveal reveal-delay-3">
+      <div class="cs-emoji">👤</div>
+      <div class="cs-title">Reconhece cliente recorrente</div>
+      <div class="cs-desc">Cliente já cadastrado é identificado pelo CPF/CNPJ ou telefone. A Cacau personaliza o atendimento com base no histórico.</div>
+    </div>
+    <div class="cs-card reveal reveal-delay-1">
+      <div class="cs-emoji">🆕</div>
+      <div class="cs-title">Cadastra cliente novo automaticamente</div>
+      <div class="cs-desc">Primeira compra? A Cacau coleta os dados durante a conversa e cria o cadastro no Shop Control 9 sem você precisar fazer nada.</div>
+    </div>
+    <div class="cs-card reveal reveal-delay-2">
+      <div class="cs-emoji">🧾</div>
+      <div class="cs-title">Registra a venda no ERP</div>
+      <div class="cs-desc">Pedido fechado no WhatsApp vira sequência de saída no Shop Control 9 automaticamente. Fim do duplo trabalho.</div>
+    </div>
+    <div class="cs-card reveal reveal-delay-3">
+      <div class="cs-emoji">🎁</div>
+      <div class="cs-title">Identifica promoções ativas</div>
+      <div class="cs-desc">A Cacau sabe quais produtos estão em promoção naquele momento e oferece quando faz sentido na conversa.</div>
+    </div>
+  </div>
+  <div class="cs-quote reveal reveal-delay-4">
+    <p>É como ter uma vendedora que decora todo o estoque, todos os preços, todos os clientes — e nunca esquece nada.</p>
   </div>
 </section>
 
@@ -410,11 +475,11 @@ footer img{height:22px;opacity:0.4}
       <tr><td class="col-dim">Horário de atendimento</td><td class="col-antes">Seg–Sex 9h–18h · Sáb 9h–12h</td><td class="col-depois">Ininterrupto — a Cacau nunca dorme</td></tr>
       <tr><td class="col-dim">Triagem e qualificação</td><td class="col-antes">Menu que só distribui filas — cada atendente começa do zero</td><td class="col-depois">A Cacau coleta nome, intenção e tipo de compra antes de qualquer humano entrar</td></tr>
       <tr><td class="col-dim">Dúvidas frequentes</td><td class="col-antes">Respondidas manualmente, dezenas de vezes ao dia</td><td class="col-depois">Respondidas instantaneamente, com precisão e tom de marca consistente</td></tr>
-      <tr><td class="col-dim">Registro do pedido</td><td class="col-antes">Fechado no WhatsApp → lançado manualmente no Shop9</td><td class="col-depois">Registrado automaticamente no Shop9 ao final da conversa</td></tr>
+      <tr><td class="col-dim">Registro do pedido</td><td class="col-antes">Fechado no WhatsApp → lançado manualmente no Shop Control 9</td><td class="col-depois">Registrado automaticamente no Shop Control 9 ao final da conversa</td></tr>
       <tr><td class="col-dim">Follow-up de leads frios</td><td class="col-antes">Leads que pararam de responder são esquecidos</td><td class="col-depois">Reativação automática em até 2h e 24h dentro do fluxo receptivo</td></tr>
       <tr><td class="col-dim">Carga da equipe</td><td class="col-antes">Time sobrecarregado com volume alto e qualidade oscilante</td><td class="col-depois">Equipe atua só nos casos que precisam de humano — com contexto já coletado</td></tr>
       <tr><td class="col-dim">Consistência da experiência</td><td class="col-antes">Varia conforme o dia, o atendente e o volume</td><td class="col-depois">Padrão de marca garantido em 100% das interações</td></tr>
-      <tr><td class="col-dim">Pós-venda e recompra</td><td class="col-antes">Sem acompanhamento após a entrega</td><td class="col-depois">Sequência automática de satisfação conectada ao Shop9</td></tr>
+      <tr><td class="col-dim">Pós-venda e recompra</td><td class="col-antes">Sem acompanhamento após a entrega</td><td class="col-depois">Sequência automática de satisfação conectada ao Shop Control 9</td></tr>
       <tr><td class="col-dim">Visibilidade do pipeline</td><td class="col-antes">Difícil saber quantos leads entraram, responderam ou sumiram</td><td class="col-depois">Volume, conversão e gargalos visíveis em tempo real</td></tr>
     </tbody>
   </table>
@@ -439,28 +504,19 @@ footer img{height:22px;opacity:0.4}
       <div class="int-papel">Cérebro do agente — compreensão de linguagem natural, respostas inteligentes e base de conhecimento dinâmica</div>
     </div>
     <div class="int-card reveal reveal-delay-3">
-      <div class="int-emoji">⚙️</div>
-      <div class="int-name">n8n</div>
-      <div class="int-papel">Motor de automação central — orquestra todos os fluxos entre WhatsApp, IA e Shop9</div>
+      <div class="int-emoji">🛒</div>
+      <div class="int-name">Shop Control 9 · ERP Idealsoft</div>
+      <div class="int-papel">Registro automático de pedidos, consulta de estoque em tempo real, sincronização do catálogo de produtos e identificação de cliente recorrente por CPF/CNPJ ou telefone.</div>
+      <div class="int-badge confirmed">✓ Integração via API REST oficial Idealsoft</div>
     </div>
     <div class="int-card reveal reveal-delay-1">
-      <div class="int-emoji">🛒</div>
-      <div class="int-name">Shop9 (ERP)</div>
-      <div class="int-papel">Registro automático de pedidos fechados no WhatsApp e consulta de estoque em tempo real</div>
-      <div class="int-badge">⚡ A confirmar API</div>
-    </div>
-    <div class="int-card reveal reveal-delay-2">
-      <div class="int-emoji">📊</div>
-      <div class="int-name">CRM</div>
-      <div class="int-papel">Centralização do histórico de clientes e pipeline de vendas — a definir conforme o sistema utilizado</div>
-      <div class="int-badge">🔍 A confirmar</div>
-    </div>
-    <div class="int-card reveal reveal-delay-3">
-      <div class="int-emoji">📈</div>
-      <div class="int-name">Google Sheets</div>
-      <div class="int-papel">Dashboard de acompanhamento de volume de atendimentos e conversões em tempo real</div>
+      <div class="int-emoji">💬</div>
+      <div class="int-name">CRM e Atendimento Grape AI</div>
+      <div class="int-papel">Plataforma proprietária da Grape AI para histórico unificado de conversas, gestão de filas, escalada para humano e visibilidade do pipeline de vendas em tempo real.</div>
+      <div class="int-badge confirmed">✓ Já incluso no setup</div>
     </div>
   </div>
+  <p class="int-prereq reveal reveal-delay-4">📌 <em><strong>Pré-requisito técnico:</strong> ativação do módulo "Integrações" na licença Shop Control 9 Corporate junto à Idealsoft. Custo cobrado diretamente pelo fornecedor do ERP, não incluso neste investimento.</em></p>
 </section>
 
 <!-- INVESTIMENTO -->
@@ -484,7 +540,7 @@ footer img{height:22px;opacity:0.4}
         <div class="inv-item">Desenvolvimento do agente Cacau</div>
         <div class="inv-item">Base de conhecimento com produtos e FAQs reais</div>
         <div class="inv-item">Integração WhatsApp Business API</div>
-        <div class="inv-item">Integração com Shop9 via API</div>
+        <div class="inv-item">Integração com Shop Control 9 via API oficial Idealsoft</div>
         <div class="inv-item">CRM e canais de atendimento Grape AI</div>
         <div class="inv-item">Testes, ajustes e go-live supervisionado</div>
         <div class="inv-item">Treinamento da equipe</div>
@@ -581,11 +637,15 @@ footer img{height:22px;opacity:0.4}
       <div class="impl-dot">2</div>
       <div class="impl-semana">Semanas 3–4</div>
       <div class="impl-nome">Construção</div>
+      <div class="impl-tagline">onde acontece o trabalho técnico mais sensível</div>
       <ul class="impl-items">
-        <li>Desenvolvimento da Cacau</li>
-        <li>Treino da base de conhecimento</li>
-        <li>Integração WhatsApp API</li>
-        <li>Integração Shop9</li>
+        <li>Desenvolvimento da agente Cacau (persona, fluxos, tom de marca)</li>
+        <li>Treino da base de conhecimento (produtos, FAQs, políticas)</li>
+        <li>Integração WhatsApp Business API + plataforma Grape AI</li>
+        <li>Integração Shop Control 9 · Idealsoft</li>
+        <li class="sub">Autenticação e signature de segurança (HMAC SHA256)</li>
+        <li class="sub">Endpoints de produtos, estoque, clientes e vendas</li>
+        <li class="sub">Homologação no ambiente de testes da Idealsoft</li>
       </ul>
     </div>
     <div class="impl-fase">
@@ -646,8 +706,9 @@ footer img{height:22px;opacity:0.4}
 const etapas = [
   {
     num: '01', titulo: 'Recepção Inteligente',
-    desc: 'A Cacau recepciona 100% das mensagens recebidas, identifica se é cliente novo ou recorrente e personaliza a saudação. Substitui o menu atual com uma experiência mais fluida — sem travar em opções fixas.',
-    tags: ['WhatsApp Business API', 'IA Conversacional'],
+    desc: 'A Cacau atende toda mensagem que chega, em segundos, 24/7. Cumprimenta com o tom da Feito Chocolate, identifica se é cliente novo ou recorrente consultando o Shop Control 9, e dá o primeiro direcionamento sem fila e sem espera.',
+    resultado: 'Resultado: cliente nunca fica sem resposta. Primeira impressão impecável, em qualquer horário.',
+    tags: ['WhatsApp Business API', 'IA Conversacional', 'Shop Control 9'],
     logica: [
       {se: 'SE', cond: 'cliente novo', entao: '→ apresentação + coleta de nome + menu de intenção'},
       {se: 'SE', cond: 'cliente recorrente', entao: '→ saudação personalizada + atalho direto ao pedido'},
@@ -660,8 +721,9 @@ const etapas = [
   },
   {
     num: '02', titulo: 'Qualificação e Triagem',
-    desc: 'Entende o perfil e a necessidade do cliente antes de qualquer atendimento humano. A Cacau coleta as informações certas para que, se precisar escalar, o atendente já saiba exatamente com quem está falando e o que precisa.',
-    tags: ['IA Conversacional', 'Qualificação Automática'],
+    desc: 'Antes de entrar em qualquer assunto pesado, a Cacau entende o que o cliente quer: comprar, tirar dúvida, falar com humano, acompanhar pedido. Coleta nome, intenção e tipo de compra (loja Curitiba, loja Londrina ou site nacional) — e roteia para o caminho certo.',
+    resultado: 'Resultado: nenhum atendente humano começa do zero. Quando a conversa precisa de gente, ela chega já mapeada.',
+    tags: ['IA Conversacional', 'Qualificação Automática', 'Roteamento Logístico'],
     logica: [
       {se: 'SE', cond: 'cliente sabe o que quer', entao: '→ coleta produto, quantidade e avança para o pedido'},
       {se: 'SE', cond: 'cliente está em dúvida sobre o produto', entao: '→ faz perguntas de uso e sugere a melhor opção'},
@@ -677,7 +739,8 @@ const etapas = [
   },
   {
     num: '03', titulo: 'Dúvidas Frequentes',
-    desc: 'Responde automaticamente as perguntas mais comuns — preços, disponibilidade, marcas, prazo de entrega, pedido mínimo — sem acionar nenhum humano.',
+    desc: 'A Cacau responde instantaneamente sobre produtos, sabores, prazos, formas de pagamento, mínimo para entrega, política de troca, horários de loja e tudo o que hoje seu time responde dezenas de vezes por dia. Sem variar tom, sem esquecer informação, sem precisar consultar ninguém.',
+    resultado: 'Resultado: a maioria das interações resolvidas sem tocar uma pessoa do time.',
     tags: ['Base de Conhecimento', 'IA Generativa', 'Catálogo Dinâmico'],
     logica: [
       {se: 'SE', cond: 'pergunta está na base', entao: '→ responde instantaneamente com precisão'},
@@ -690,13 +753,15 @@ const etapas = [
     ]
   },
   {
-    num: '04', titulo: 'Fechamento e Shop9',
-    desc: 'Conduz o cliente até o fechamento do pedido dentro do WhatsApp e registra automaticamente no Shop9, eliminando o retrabalho manual da equipe.',
-    tags: ['Integração Shop9', 'Automação de Pedidos', 'n8n'],
+    num: '04', titulo: 'Fechamento e Shop Control 9',
+    desc: 'Quando o cliente decide comprar, a Cacau entra em ação técnica: consulta estoque ao vivo no Shop Control 9, aplica a tabela de preço correta, identifica promoções ativas, calcula o pedido completo, confirma com o cliente e registra a venda automaticamente no ERP ao final da conversa. Cliente novo é cadastrado na hora.',
+    resultado: 'Resultado: pedido nasce e morre no mesmo lugar. Fim do duplo trabalho entre WhatsApp e ERP.',
+    tags: ['Shop Control 9 · Idealsoft', 'API REST oficial', 'Automação de Pedidos'],
     logica: [
-      {se: 'SE', cond: 'cliente confirma itens', entao: '→ gera resumo do pedido para validação'},
-      {se: 'SE', cond: 'cliente aprova', entao: '→ cria pedido automaticamente no Shop9'},
-      {se: 'SE', cond: 'cliente quer ajustar', entao: '→ retorna ao fluxo de seleção'},
+      {se: 'SE', cond: 'cliente confirma itens', entao: '→ Cacau consulta estoque e preço no Shop Control 9'},
+      {se: 'SE', cond: 'estoque disponível', entao: '→ gera resumo do pedido para validação'},
+      {se: 'SE', cond: 'cliente é novo', entao: '→ cadastra automaticamente no Shop Control 9'},
+      {se: 'SE', cond: 'cliente aprova', entao: '→ registra venda no ERP automaticamente'},
       {se: 'SEMPRE', cond: '', entao: '→ envia confirmação com número do pedido'},
     ],
     msgs: [
@@ -706,7 +771,8 @@ const etapas = [
   },
   {
     num: '05', titulo: 'Escalada para Humano',
-    desc: 'Identifica os momentos em que o atendimento humano agrega mais valor e faz a passagem de forma fluida — com todo o contexto já coletado, sem o cliente precisar repetir nada.',
+    desc: 'Quando o caso pede julgamento humano — negociação especial, reclamação delicada, pedido fora do padrão — a Cacau identifica e passa o bastão. Mas não passa só "o cliente": passa o contexto completo da conversa, com tudo que ela já coletou. Seu time chega pronto pra resolver, não pra começar.',
+    resultado: 'Resultado: equipe atua só onde precisa, com contexto na mão. Tempo de resolução cai, qualidade sobe.',
     tags: ['Escalada Contextual', 'WhatsApp Business API'],
     logica: [
       {se: 'SE', cond: 'cliente pede atendente', entao: '→ escala imediatamente com resumo da conversa'},
@@ -737,6 +803,7 @@ function showEtapa(i, el) {
       <p style="font-size:11px;color:var(--grape-primary);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px">Etapa ${e.num}</p>
       <h3>${e.titulo}</h3>
       <p class="panel-desc">${e.desc}</p>
+      <div class="panel-result">${e.resultado}</div>
       <div class="panel-tags">${tagsHtml}</div>
       <div class="logica">
         <div class="logica-title">Lógica de decisão</div>
