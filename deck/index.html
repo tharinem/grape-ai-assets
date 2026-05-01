@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Grape AI — Apresentação</title>
+<link rel="icon" type="image/png" href="assets/grape-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Top progress + audience switcher -->
+<header class="topbar">
+  <div class="brand-mini">
+    <img src="assets/grape-logo.png" alt="" class="brand-mini__logo">
+    <span class="brand-mini__text">Grape <span class="accent">AI</span></span>
+  </div>
+  <nav class="audience-switcher" aria-label="Filtro por audiência">
+    <button data-audience="all" class="aud-btn aud-btn--active">Tudo</button>
+    <button data-audience="investor" class="aud-btn">Investidores</button>
+    <button data-audience="partner" class="aud-btn">Parceiros</button>
+    <button data-audience="client" class="aud-btn">Clientes</button>
+  </nav>
+  <div class="counter"><span id="counter-current">1</span><span class="counter__sep">/</span><span id="counter-total">32</span></div>
+</header>
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progress-bar"></div></div>
+
+<main id="deck">
+
+<!-- SLIDE 1: COVER -->
+<section class="slide slide--cover" data-audience="all" data-slide="1">
+  <div class="cover-bg"></div>
+  <div class="cover-content">
+    <div class="cover-logo-wrap">
+      <img src="assets/grape-logo.png" alt="Grape AI" class="cover-logo">
+    </div>
+    <h1 class="cover-title">Grape <span class="accent">AI</span></h1>
+    <p class="cover-tagline">A IA que vira processo. Não a que vira mais um app.</p>
+    <p class="cover-sub">Implementamos e operamos inteligência artificial dentro do seu negócio — do WhatsApp do cliente à gestão da sua empresa.</p>
+    <div class="cover-meta">
+      <span>2026</span>
+      <span class="dot"></span>
+      <span>Apresentação</span>
+      <span class="dot"></span>
+      <span>v1.0</span>
+    </div>
+  </div>
+  <div class="hint hint--down" aria-hidden="true">↓ scroll · ← → setas</div>
+</section>
+
+<!-- SLIDE 2: MANIFESTO -->
+<section class="slide slide--manifesto" data-audience="all" data-slide="2">
+  <div class="manifesto">
+    <p class="kicker">Em uma frase</p>
+    <h2 class="display">
+      A maioria vende <span class="strike">ferramentas de IA</span>.<br>
+      A gente faz <span class="hl">a IA dar resultado</span>.
+    </h2>
+    <p class="lede">
+      Empresa nenhuma precisa de mais um chatbot pra esquecer no WhatsApp.
+      Precisa de alguém que entre, organize o processo e fique do lado
+      garantindo que a IA está vendendo, atendendo e gerando dinheiro de verdade.
+      <strong>Esse alguém é a Grape.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- SLIDE 3: PROBLEMA -->
+<section class="slide" data-audience="all" data-slide="3">
+  <div class="container">
+    <p class="kicker">O Problema</p>
+    <h2 class="h-display">22h da noite. Um cliente manda mensagem. <em>Ninguém responde.</em></h2>
+    <p class="lede">É assim que pequenas e médias empresas perdem dinheiro todos os dias. E quando vão atrás de "alguma coisa de IA", encontram três becos sem saída:</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">01</div>
+        <h3>Plataformas que vendem caixa de ferramentas</h3>
+        <p>"Monte seu próprio chatbot." O dono da empresa não tem tempo, não é técnico, e o agente fica abandonado em 30 dias.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02</div>
+        <h3>Agências que entregam e somem</h3>
+        <p>Cobram caro pelo setup, soltam o agente no ar, e quando algo dá errado o cliente vira refém.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03</div>
+        <h3>Métricas que não dizem nada</h3>
+        <p>"Seu bot trocou 1.247 mensagens este mês." Ótimo. <strong>Mas vendeu quanto?</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: O INSIGHT -->
+<section class="slide slide--dark" data-audience="all" data-slide="4">
+  <div class="container split">
+    <div>
+      <p class="kicker">A virada de chave</p>
+      <h2 class="h-display">A IA não é o produto.<br>É o <span class="hl">jeito novo</span> de fazer o que você já faz.</h2>
+      <p class="lede">Atendimento, vendas, gestão, recompra — tudo isso já existe na sua empresa. A diferença é que agora pode ser feito 24 horas por dia, sem fila, com qualidade humana, por uma fração do custo. <strong>Mas alguém precisa redesenhar o processo. Não é plug-and-play.</strong></p>
+    </div>
+    <div class="big-quote">
+      <p>"Não vendemos um chatbot.<br>Vendemos uma <em>operação de IA</em> dentro do seu negócio."</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: O QUE É GRAPE AI (story-driven) -->
+<section class="slide" data-audience="all" data-slide="5">
+  <div class="container">
+    <p class="kicker">Quem é a Grape</p>
+    <h2 class="h-display">A gente <em>entra, organiza e fica</em>.</h2>
+    <p class="lede max-2col">Pense numa consultoria que coloca IA no seu negócio — e depois opera essa IA mês a mês, garantindo que ela vende, atende e melhora. Não é software pra você usar. É um time (humano + IA) trabalhando do seu lado.</p>
+    <div class="grid-2 mt-xl">
+      <div class="hero-card">
+        <h3 class="card-h">Mês 1 — A gente entra</h3>
+        <ul class="checklist">
+          <li>Mapeia seu processo atual e onde tá vazando dinheiro</li>
+          <li>Constrói os agentes de IA dentro do seu WhatsApp</li>
+          <li>Conecta com os sistemas que você já usa (não troca nada)</li>
+          <li>Coloca tudo no ar com cliente real em até 7 dias</li>
+        </ul>
+      </div>
+      <div class="hero-card hero-card--accent">
+        <h3 class="card-h">Mês 2 em diante — A gente fica</h3>
+        <ul class="checklist">
+          <li>Acompanha a qualidade dos agentes todo dia</li>
+          <li>Te entrega um relatório por mês mostrando quanto vendeu</li>
+          <li>Sugere ajustes baseados em dados (não em achismo)</li>
+          <li>Cria novos agentes conforme seu negócio cresce</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: O MÉTODO -->
+<section class="slide slide--deep" data-audience="all" data-slide="6">
+  <div class="container">
+    <p class="kicker">Como a gente trabalha</p>
+    <h2 class="h-display">Reengenharia Digital. Em 4 passos.</h2>
+    <p class="lede max-2col">Antes da Grape virar empresa, foi um método de pensar. <strong>Não automatize o caos — primeiro reorganize. Depois deixe a IA fazer o trabalho.</strong></p>
+    <div class="method-flow">
+      <div class="method-step"><span>01</span><strong>Mapear</strong><p>Olhamos seus processos hoje. Onde tá demorando, onde tá perdendo, onde dá pra acelerar.</p></div>
+      <div class="method-arrow">→</div>
+      <div class="method-step"><span>02</span><strong>Redesenhar</strong><p>Repensamos onde a IA faz sentido (não em todo lugar — só onde gera valor real).</p></div>
+      <div class="method-arrow">→</div>
+      <div class="method-step"><span>03</span><strong>Implementar</strong><p>Construímos os agentes, integramos com seus sistemas, testamos com cliente real.</p></div>
+      <div class="method-arrow">→</div>
+      <div class="method-step"><span>04</span><strong>Operar</strong><p>Mês a mês: monitoramos, otimizamos, mostramos o retorno em reais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: LAND & EXPAND -->
+<section class="slide slide--dark" data-audience="all" data-slide="7">
+  <div class="container">
+    <p class="kicker">Como crescemos com você</p>
+    <h2 class="h-display">A gente entra <em>pequeno</em>. <span class="hl">Cresce com você.</span></h2>
+    <p class="lede">Começamos resolvendo a dor mais óbvia (atendimento no WhatsApp). Conforme você confia, a gente vai entrando em mais áreas do negócio — sempre com ROI provado antes de cada passo.</p>
+    <div class="le-flow">
+      <div class="le-stage le-stage--in">
+        <div class="le-num">Começo</div>
+        <h3>Atendimento por IA no WhatsApp</h3>
+        <p>R$ 8–15k setup<br>R$ 2–4k/mês</p>
+      </div>
+      <div class="le-arrow">→</div>
+      <div class="le-stage">
+        <div class="le-num">3 a 6 meses</div>
+        <h3>Mais agentes + dashboard de retorno</h3>
+        <p>+ R$ 5–15k setup<br>+ R$ 2–5k/mês</p>
+      </div>
+      <div class="le-arrow">→</div>
+      <div class="le-stage le-stage--out">
+        <div class="le-num">Em 12 meses</div>
+        <h3>Empresa redesenhada com IA + copiloto do gestor</h3>
+        <p>R$ 8k+/mês contínuo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 8: PORTA DE ENTRADA — interactive before/after -->
+<section class="slide" data-audience="all" data-slide="8">
+  <div class="container split">
+    <div>
+      <p class="kicker">Por onde a gente entra</p>
+      <h2 class="h-display">No <em>WhatsApp</em>. Onde seu cliente já está.</h2>
+      <p class="lede">É onde o brasileiro compra, pergunta e desiste por demora. Sub-1 minuto de resposta, conversa que entende contexto, e gestor entrando só pra fechar venda.</p>
+      <div class="ba-toggle" role="tablist" aria-label="Antes e depois">
+        <button class="ba-btn ba-btn--active" data-ba="before" role="tab">Sem Grape</button>
+        <button class="ba-btn" data-ba="after" role="tab">Com Grape</button>
+      </div>
+      <ul class="ba-list ba-list--before" data-ba-content="before">
+        <li>Mensagem chega 22h, é vista no dia seguinte</li>
+        <li>Cliente já comprou no concorrente</li>
+        <li>Gestor não sabe quanto perdeu — só sente</li>
+        <li>"Vou contratar uma pessoa pra responder"… que custa R$ 2k/mês e dorme</li>
+      </ul>
+      <ul class="ba-list" data-ba-content="after" hidden>
+        <li>Resposta &lt; 60 segundos, qualquer hora</li>
+        <li>Conversa qualifica e já manda proposta</li>
+        <li>Gestor recebe lead pronto pra fechar</li>
+        <li>Dashboard mostra exatamente quanto a IA vendeu</li>
+      </ul>
+    </div>
+    <div class="phone-mockup">
+      <div class="phone-screen">
+        <div class="msg msg--in">Oi! Vi vocês no Insta, queria saber sobre evento pra 50 pessoas em junho 🍷</div>
+        <div class="msg msg--ai"><span class="ai-tag">Atendimento por IA</span>Olá! Posso te ajudar a montar a proposta. Pode me dizer a data e o tipo de evento?</div>
+        <div class="msg msg--in">15 de junho, jantar corporativo</div>
+        <div class="msg msg--ai">Perfeito 🎯 Tenho disponibilidade. Vou enviar 3 opções de menu e valores em 1 minuto.</div>
+        <div class="msg-status">→ proposta enviada · gestor avisado · tudo registrado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 9: COMO CRESCEMOS — story timeline -->
+<section class="slide slide--deep" data-audience="all" data-slide="9">
+  <div class="container">
+    <p class="kicker">A jornada do cliente Grape</p>
+    <h2 class="h-display">Mês 1 abre uma porta. <span class="hl">Mês 12 redesenhou a empresa.</span></h2>
+    <div class="timeline">
+      <div class="tl-step tl-step--m1">
+        <div class="tl-num">Mês 1</div>
+        <h4>Atendimento ligado</h4>
+        <p>1 agente respondendo no WhatsApp do cliente. Gestor já recebe leads qualificados sem fazer nada.</p>
+      </div>
+      <div class="tl-step tl-step--m3">
+        <div class="tl-num">Mês 3</div>
+        <h4>ROI fica visível</h4>
+        <p>Dashboard mostrando quanto a IA gerou em vendas. Gestor enxerga: "ah, valeu cada centavo."</p>
+      </div>
+      <div class="tl-step tl-step--m6">
+        <div class="tl-num">Mês 6</div>
+        <h4>Mais agentes entram</h4>
+        <p>Suporte pós-venda. Recompra automática. Cada novo agente paga o próprio custo em semanas.</p>
+      </div>
+      <div class="tl-step tl-step--m12">
+        <div class="tl-num">Mês 12</div>
+        <h4>O gestor conversa com o próprio negócio</h4>
+        <p>Pergunta no WhatsApp: "como foi a semana?" Recebe resumo. A empresa virou um sistema com IA por dentro.</p>
+      </div>
+    </div>
+    <p class="footnote">Cada cliente vira potencialmente 3–5× a receita inicial em 12–18 meses. Sem precisar trocar de fornecedor.</p>
+  </div>
+</section>
+
+<!-- SLIDE 10: STACK -->
+<section class="slide" data-audience="all" data-slide="10" data-tags="partner,investor">
+  <div class="container">
+    <p class="kicker">Por baixo do capô</p>
+    <h2 class="h-display">As ferramentas que usamos. <span class="hl">As que evitamos.</span></h2>
+    <p class="lede max-2col">A gente escolhe ferramentas open-source quando a qualidade é a mesma. Isso significa: <strong>você nunca fica refém de um fornecedor</strong>. E nosso custo de operação é 5–10× menor que concorrentes que pagam SaaS caro.</p>
+    <div class="stack-grid">
+      <div class="stack-cat">
+        <h4>Onde o cliente conversa</h4>
+        <ul><li>WhatsApp <span class="tooltip" data-tip="API oficial da Meta. Único jeito legal de operar agentes em escala.">(API oficial)</span></li><li>Chatwoot <span class="tooltip" data-tip="Plataforma open-source onde a Grape gerencia conversas e CRM dos clientes.">(o painel)</span></li></ul>
+      </div>
+      <div class="stack-cat">
+        <h4>O cérebro</h4>
+        <ul><li>Claude (Anthropic)</li><li>GPT (fallback)</li><li>Langfuse <span class="tooltip" data-tip="Sistema que registra cada conversa do agente — pra gente conseguir provar ROI e otimizar.">(observação)</span></li></ul>
+      </div>
+      <div class="stack-cat">
+        <h4>A cola entre sistemas</h4>
+        <ul><li>n8n <span class="tooltip" data-tip="Plataforma open-source que conecta o agente aos sistemas que o cliente já usa (ERP, CRM, agenda).">(integrações)</span></li><li>Webhooks seguros</li></ul>
+      </div>
+      <div class="stack-cat">
+        <h4>Os números</h4>
+        <ul><li>Supabase (banco de dados)</li><li>Metabase <span class="tooltip" data-tip="Ferramenta que transforma dados em dashboards bonitos pro cliente.">(dashboards)</span></li></ul>
+      </div>
+      <div class="stack-cat">
+        <h4>Como a Grape opera</h4>
+        <ul><li>Claude Code + Skills <span class="tooltip" data-tip="O cockpit interno: onde Tharine e equipe operam tudo via IA.">(cockpit)</span></li><li>GitHub (versionamento)</li></ul>
+      </div>
+      <div class="stack-cat stack-cat--anti">
+        <h4>O que não usamos</h4>
+        <ul><li>Plataformas SaaS de WhatsApp prontas</li><li>Bot genérico tipo "ChatGPT no WhatsApp"</li><li>Construtores visuais no-code</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 11: ARQUITETURA — simplified -->
+<section class="slide slide--dark" data-audience="all" data-slide="11" data-tags="partner,investor">
+  <div class="container">
+    <p class="kicker">Como tudo se conecta</p>
+    <h2 class="h-display">Três peças. Uma engrenagem.</h2>
+    <p class="lede">2 ou 3 pessoas conseguem operar 10+ clientes ao mesmo tempo porque organizamos a operação assim:</p>
+    <div class="planes">
+      <div class="plane">
+        <div class="plane-num">1</div>
+        <h3>Cockpit</h3>
+        <p><strong>Onde a Grape trabalha.</strong> Aqui ficam nossos agentes internos: criação de proposta, follow-up, relatório mensal. A gente opera os clientes daqui — não precisa abrir 10 painéis diferentes.</p>
+        <span class="plane-tag">Tharine + equipe</span>
+      </div>
+      <div class="plane plane--mid">
+        <div class="plane-num">2</div>
+        <h3>Entrega</h3>
+        <p><strong>O que o cliente vê.</strong> WhatsApp, agente conversando, integração com o ERP dele. Cada cliente tem sua operação isolada, mas roda na mesma infraestrutura — por isso fica barato e rápido.</p>
+        <span class="plane-tag">Por cliente</span>
+      </div>
+      <div class="plane">
+        <div class="plane-num">3</div>
+        <h3>Provas</h3>
+        <p><strong>Onde o ROI mora.</strong> Cada conversa carrega um identificador. Quando vira venda no sistema do cliente, a venda volta ligada à conversa. <em>Resultado: dashboard mostra quanto a IA vendeu, em reais.</em></p>
+        <span class="plane-tag">Atribuição real</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 12: O MOAT — ROI -->
+<section class="slide slide--moat" data-audience="all" data-slide="12">
+  <div class="container">
+    <p class="kicker">Nossa vantagem injusta</p>
+    <h2 class="h-display">Não mostramos <span class="strike">"1.247 mensagens trocadas"</span>.<br>Mostramos <span class="hl">R$ 47 mil em vendas atribuídas</span>.</h2>
+    <p class="lede max-2col">Esta é a diferença entre vender uma promessa e vender um resultado. Cada conversa que o agente tem é registrada. Cada venda que sai é amarrada à conversa que gerou. <strong>A gente pode mostrar exatamente quanto cada agente vendeu, no real.</strong></p>
+    <div class="roi-mockup">
+      <div class="roi-card">
+        <span class="roi-label">Vendas atribuídas · este mês</span>
+        <span class="roi-big" data-counter="47832" data-prefix="R$ ">R$ 47.832</span>
+        <span class="roi-trend">↑ 23% vs mês passado</span>
+      </div>
+      <div class="roi-card roi-card--alt">
+        <span class="roi-label">Custo do agente</span>
+        <span class="roi-big" data-counter="1240" data-prefix="R$ ">R$ 1.240</span>
+        <span class="roi-trend">38× de retorno</span>
+      </div>
+      <div class="roi-card roi-card--alt">
+        <span class="roi-label">Qualidade média</span>
+        <span class="roi-big" data-counter="87" data-suffix="%">87<span class="roi-unit">%</span></span>
+        <span class="roi-trend">qualifica + atende + converte</span>
+      </div>
+    </div>
+    <p class="footnote">Demo do dashboard que entregamos. Os números mudam por cliente, em tempo real.</p>
+  </div>
+</section>
+
+<!-- SLIDE 13: POR QUE AGORA -->
+<section class="slide" data-audience="all" data-slide="13">
+  <div class="container">
+    <p class="kicker">Por que agora — e não daqui a 2 anos</p>
+    <h2 class="h-display">Em janeiro de 2026, a Meta mudou as regras do WhatsApp.</h2>
+    <div class="grid-2">
+      <div>
+        <h3 class="h3">Bots genéricos foram banidos.</h3>
+        <p>Quem usar "qualquer chatbot" no WhatsApp Business arrisca suspensão. As novas regras exigem: agente com propósito claro, aviso de IA, opção de falar com humano sempre disponível.</p>
+        <p><strong>Microsoft tirou o Copilot do WhatsApp em janeiro por causa disso.</strong></p>
+      </div>
+      <div class="why-now-payoff">
+        <p class="why-now-label">O que isso muda</p>
+        <p class="why-now-big">DIY morreu.</p>
+        <p>Empresa nenhuma consegue mais "ligar ChatGPT no WhatsApp" sozinha sem tomar banimento. Agora precisa de quem entenda das regras, do vertical e da integração — exatamente o que a gente vende.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 14: ANTI-FEATURES (jargon-free) -->
+<section class="slide slide--deep" data-audience="all" data-slide="14">
+  <div class="container">
+    <p class="kicker">Foco — pelo que NÃO fazemos</p>
+    <h2 class="h-display">Listar o que <span class="hl">não fazemos</span> vale mais que listar o que fazemos.</h2>
+    <p class="lede">Quando alguém te diz "fazemos tudo", quer dizer "não temos foco". Aqui está o que a Grape <em>recusa</em> — e por quê:</p>
+    <div class="anti-grid">
+      <div class="anti">✗ Plataforma "monte sozinho"<br><span>Cliente sem operador abandona em 30 dias. Provado.</span></div>
+      <div class="anti">✗ Construir ERP ou CRM<br><span>Você já tem os seus. A gente conecta, não substitui.</span></div>
+      <div class="anti">✗ Bot tipo ChatGPT genérico<br><span>Banido pela Meta. Risco de suspensão da sua conta.</span></div>
+      <div class="anti">✗ "IA personalizada" mirabolante<br><span>Custa caro, demora meses, e você não precisa disso.</span></div>
+      <div class="anti">✗ Comparar você com outros clientes<br><span>Cliente nenhum gosta de virar benchmark público.</span></div>
+      <div class="anti">✗ Trocar de ferramenta toda hora<br><span>Estabilidade vence FOMO. Stack congelada por 6 meses.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 15: MERCADO (with chart) -->
+<section class="slide" data-audience="investor" data-slide="15">
+  <div class="container">
+    <p class="kicker">Mercado · para investidores</p>
+    <h2 class="h-display">Onde estamos jogando — e quanto cabe.</h2>
+    <div class="market-grid">
+      <div class="market-card">
+        <span class="market-label">O mercado todo (Brasil)</span>
+        <span class="market-big" data-counter="38" data-prefix="R$ " data-suffix="B">R$ 38B</span>
+        <span class="market-sub">Tudo de CRM, automação, atendimento e BI vendido pra PMEs no Brasil</span>
+        <div class="market-bar"><div class="market-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="market-card">
+        <span class="market-label">O mercado que faz sentido pra Grape</span>
+        <span class="market-big" data-counter="4.2" data-prefix="R$ " data-suffix="B" data-decimals="1">R$ 4.2B</span>
+        <span class="market-sub">Empresas que vendem pelo WhatsApp em verticais de foco</span>
+        <div class="market-bar"><div class="market-bar-fill" style="width:11%"></div></div>
+      </div>
+      <div class="market-card market-card--main">
+        <span class="market-label">Quanto a Grape pode pegar em 24 meses</span>
+        <span class="market-big" data-counter="24" data-prefix="R$ " data-suffix="M">R$ 24M</span>
+        <span class="market-sub">100 clientes pagando ~R$ 20k/ano (mensalidade + setup amortizado)</span>
+        <div class="market-bar"><div class="market-bar-fill market-bar-fill--green" style="width:0.6%"></div></div>
+      </div>
+    </div>
+    <p class="footnote">0,06% do mercado total. Margem de crescimento é praticamente infinita.</p>
+  </div>
+</section>
+
+<!-- SLIDE 16: VERTICAIS -->
+<section class="slide slide--dark" data-audience="all" data-slide="16">
+  <div class="container">
+    <p class="kicker">Onde a gente está</p>
+    <h2 class="h-display">2 verticais agora. <span class="hl">Profundidade antes de largura.</span></h2>
+    <p class="lede">Em vez de tentar atender qualquer empresa, a gente domina um nicho de cada vez. Quem tenta vender pra todo mundo não vende pra ninguém.</p>
+    <div class="vert-grid">
+      <div class="vert active">
+        <span class="vert-tag">EM PRODUÇÃO</span>
+        <h3>Restaurantes</h3>
+        <p>IA vende eventos no WhatsApp. Qualifica, manda menu, agenda. Gestor entra só pra fechar.</p>
+        <span class="vert-num">1 cliente · escalando</span>
+      </div>
+      <div class="vert active">
+        <span class="vert-tag">EM PRODUÇÃO</span>
+        <h3>Torrefações de café</h3>
+        <p>IA vende grãos por WhatsApp + gestor pergunta ao próprio negócio.</p>
+        <span class="vert-num">1 cliente · caso âncora público</span>
+      </div>
+      <div class="vert">
+        <span class="vert-tag vert-tag--next">PRÓXIMO</span>
+        <h3>Imobiliárias</h3>
+        <p>Qualifica comprador em 6 perguntas, agenda visita, nutre lead frio por meses.</p>
+        <span class="vert-num">Em prospecção</span>
+      </div>
+      <div class="vert vert--dim">
+        <span class="vert-tag vert-tag--later">DEPOIS</span>
+        <h3>Clínicas · Educação · E-commerce</h3>
+        <p>Quando a Grape tiver 3 cases sólidos em cada vertical atual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 17: CASO RESTAURANTE -->
+<section class="slide" data-audience="all" data-slide="17">
+  <div class="container case-layout">
+    <div>
+      <p class="kicker">Caso 1 · em produção</p>
+      <h2 class="h-display">Restaurante.<br><span class="case-sub">Vendendo evento no WhatsApp, sozinho.</span></h2>
+      <div class="case-stats">
+        <div><span class="case-stat-num">24/7</span><span class="case-stat-lbl">disponível</span></div>
+        <div><span class="case-stat-num">&lt;1min</span><span class="case-stat-lbl">tempo de resposta</span></div>
+        <div><span class="case-stat-num">100%</span><span class="case-stat-lbl">leads qualificados antes do gestor</span></div>
+      </div>
+    </div>
+    <div class="case-narr">
+      <p><strong>Antes:</strong> gestor perdia eventos porque não respondia rápido o suficiente. Cliente chegava de madrugada, fechava com concorrente.</p>
+      <p><strong>Depois:</strong> a IA recebe a mensagem, qualifica (data, número de pessoas, tipo de evento), manda 3 opções de menu, agenda visita. Gestor entra só pra fechar.</p>
+      <p class="case-quote">"O agente recuperou eventos que eu perderia. E sou eu controlando, não uma plataforma estranha."</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 18: CASO MEU CAFÉ -->
+<section class="slide slide--moat" data-audience="all" data-slide="18">
+  <div class="container case-layout">
+    <div>
+      <p class="kicker">Caso 2 · âncora público</p>
+      <h2 class="h-display">Meu Café Tem Sotaque.<br><span class="case-sub">Da venda de grãos à gestão por IA.</span></h2>
+      <div class="case-stats">
+        <div><span class="case-stat-num">2</span><span class="case-stat-lbl">agentes em implementação</span></div>
+        <div><span class="case-stat-num">100%</span><span class="case-stat-lbl">vendas via WhatsApp</span></div>
+        <div><span class="case-stat-num">público</span><span class="case-stat-lbl">dashboard de retorno ao vivo</span></div>
+      </div>
+    </div>
+    <div class="case-narr">
+      <p>Café specialty é nicho de paixão. Cliente quer saber perfil sensorial, processo, fazenda. Bot genérico não serve — fala como se fosse Bauducco.</p>
+      <p>Aqui, a IA vende grão certo pro cliente certo. <strong>E o gestor pergunta no próprio WhatsApp: "qual grão tem mais margem?", "quem não compra há 60 dias?"</strong></p>
+      <p class="case-quote">Caso público. Outras torrefações vão ver o ROI ao vivo e querer o mesmo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 19: IMOBILIÁRIA -->
+<section class="slide" data-audience="all" data-slide="19">
+  <div class="container case-layout">
+    <div>
+      <p class="kicker">Caso 3 · em prospecção</p>
+      <h2 class="h-display">Imobiliária.<br><span class="case-sub">A operação inteira, redesenhada.</span></h2>
+      <div class="case-stats">
+        <div><span class="case-stat-num">6+</span><span class="case-stat-lbl">processos pra integrar</span></div>
+        <div><span class="case-stat-num">3+</span><span class="case-stat-lbl">sistemas legados conectados</span></div>
+        <div><span class="case-stat-num">78%</span><span class="case-stat-lbl">compradores fecham com quem responde primeiro em 15h</span></div>
+      </div>
+    </div>
+    <div class="case-narr">
+      <p>Aqui não dá pra resolver com 1 chatbot. É qualificação séria, base de imóveis, agendamento de visita, drip de lead frio que demora 6 meses pra fechar — e copiloto pro corretor saber tudo isso pelo celular.</p>
+      <p><strong>Por que importa:</strong> se a Grape resolve imobiliária, resolve qualquer empresa com vários processos. É o teste final.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 20: MODELO COMERCIAL -->
+<section class="slide slide--deep" data-audience="all" data-slide="20" data-tags="investor,client">
+  <div class="container">
+    <p class="kicker">Como cobramos</p>
+    <h2 class="h-display">Setup paga a obra. <span class="hl">Mensalidade alinha o jogo.</span></h2>
+    <p class="lede max-2col">A gente cobra de dois jeitos porque agência que entrega-e-some não funciona. Setup paga a construção. Mensalidade garante que a gente continua responsável pelo resultado todo mês.</p>
+    <div class="grid-2 mt-xl">
+      <div class="hero-card">
+        <h3 class="card-h">Setup (uma vez só)</h3>
+        <p>Cobre tudo: descoberta, mapeamento, construção dos agentes, integração com seus sistemas.</p>
+        <p class="big-price">R$ 8k–25k</p>
+      </div>
+      <div class="hero-card hero-card--accent">
+        <h3 class="card-h">Mensalidade (todo mês)</h3>
+        <p>Operação contínua: monitora qualidade, otimiza o que precisa, gera relatório, cria novos agentes.</p>
+        <p class="big-price">R$ 2k–8k/mês</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 21: PACOTES -->
+<section class="slide" data-audience="all" data-slide="21" data-tags="investor,client">
+  <div class="container">
+    <p class="kicker">Pacotes</p>
+    <h2 class="h-display">Três tamanhos. Mesma filosofia.</h2>
+    <div class="packs">
+      <div class="pack">
+        <h3>Entrada</h3>
+        <p class="pack-price">R$ 8k <span>setup</span></p>
+        <p class="pack-mensal">+ R$ 2k/mês</p>
+        <ul>
+          <li>1 agente no WhatsApp (vendas ou suporte)</li>
+          <li>Painel de conversas + 1 integração</li>
+          <li>Métricas básicas + relatório mensal</li>
+          <li>1 ajuste por mês</li>
+        </ul>
+      </div>
+      <div class="pack pack--featured">
+        <span class="pack-tag">MAIS POPULAR</span>
+        <h3>Padrão</h3>
+        <p class="pack-price">R$ 15k <span>setup</span></p>
+        <p class="pack-mensal">+ R$ 4k/mês</p>
+        <ul>
+          <li>Até 2 agentes (vendas + suporte ou recompra)</li>
+          <li>3 integrações com seus sistemas</li>
+          <li>Dashboard mostrando ROI em reais</li>
+          <li>2 ajustes por mês</li>
+          <li>Compliance Meta + LGPD desde o dia 1</li>
+        </ul>
+      </div>
+      <div class="pack">
+        <h3>Premium</h3>
+        <p class="pack-price">R$ 25k <span>setup</span></p>
+        <p class="pack-mensal">+ R$ 8k/mês</p>
+        <ul>
+          <li>Até 4 agentes + copiloto pro gestor</li>
+          <li>Integrações ilimitadas</li>
+          <li>Dashboard executivo + página pública</li>
+          <li>Otimização contínua + advisory mensal</li>
+          <li>Suporte prioritário</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 22: UNIT ECONOMICS -->
+<section class="slide slide--dark" data-audience="investor" data-slide="22">
+  <div class="container">
+    <p class="kicker">Os números · para investidores</p>
+    <h2 class="h-display">Margem alta. Recorrência forte. Escala via repetição.</h2>
+    <div class="ue-grid">
+      <div class="ue">
+        <span class="ue-label">Custo de infra por cliente</span>
+        <span class="ue-num">R$ 230–500/mês</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Margem bruta (pacote Padrão)</span>
+        <span class="ue-num ue-num--green">~85%</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Quanto tempo até o setup pagar</span>
+        <span class="ue-num">2 a 4 meses</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Quanto vale 1 cliente em 24 meses <span class="tooltip" data-tip="LTV — Life Time Value: receita que 1 cliente gera ao longo do tempo de relacionamento.">(LTV)</span></span>
+        <span class="ue-num">R$ 100k+</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Quanto a gente quer gastar pra fechar 1 cliente <span class="tooltip" data-tip="CAC — Custo de Aquisição de Cliente: o que se gasta em marketing/vendas pra fechar 1 contrato.">(CAC)</span></span>
+        <span class="ue-num">&lt; R$ 8k</span>
+      </div>
+      <div class="ue ue--accent">
+        <span class="ue-label">A conta que importa: LTV ÷ CAC</span>
+        <span class="ue-num">12× ou mais</span>
+      </div>
+    </div>
+    <p class="footnote">Negócios saudáveis ficam em 3×. A Grape mira em 12×. Por isso queremos crescer com cuidado, sem queimar dinheiro.</p>
+  </div>
+</section>
+
+<!-- SLIDE 23: ROADMAP -->
+<section class="slide" data-audience="all" data-slide="23">
+  <div class="container">
+    <p class="kicker">Os próximos 90 dias</p>
+    <h2 class="h-display">Arrumar a casa antes de empilhar cliente.</h2>
+    <p class="lede">A gente sabe que aquisição é o gargalo. Mas vender mais sem operação madura quebra. Por isso o roadmap começa por dentro:</p>
+    <div class="roadmap">
+      <div class="rm-step rm-step--1"><span>1</span><h4>Operação interna</h4><p>Tharine + equipe operam tudo via IA. Conhecimento sai da cabeça e vira sistema.</p></div>
+      <div class="rm-step rm-step--2"><span>2</span><h4>Empacotamento</h4><p>3 pacotes claros, contrato pronto, onboarding em ≤7 dias.</p></div>
+      <div class="rm-step rm-step--3"><span>3</span><h4>Dashboard de retorno</h4><p>ROI ao vivo. Caso âncora (Meu Café) público.</p></div>
+      <div class="rm-step rm-step--4"><span>4</span><h4>Playbook</h4><p>Template por vertical. Setup novo cliente em 1 semana.</p></div>
+      <div class="rm-step rm-step--5"><span>5</span><h4>Aquisição</h4><p>5 leads qualificados por semana. 2+ cases publicados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 24: SHOWCASE -->
+<section class="slide slide--moat" data-audience="all" data-slide="24">
+  <div class="container">
+    <p class="kicker">A prova viva</p>
+    <h2 class="h-display">A Grape opera com IA. <span class="hl">A própria Grape é o melhor caso.</span></h2>
+    <p class="lede">A gente é a primeira cobaia da própria Grape. 2 ou 3 pessoas operando 10+ clientes ao mesmo tempo, com agentes internos cuidando de:</p>
+    <div class="show-grid">
+      <div class="show">
+        <h4>Propostas comerciais por IA</h4>
+        <p>Em &lt; 30 minutos, customizadas por cliente.</p>
+      </div>
+      <div class="show">
+        <h4>Onboarding por agente</h4>
+        <p>Do "sim" do cliente ao agente no ar em ≤7 dias.</p>
+      </div>
+      <div class="show">
+        <h4>Relatório mensal automatizado</h4>
+        <p>Por cliente, entregue no WhatsApp + email.</p>
+      </div>
+      <div class="show">
+        <h4>4 squads de IA como cérebro</h4>
+        <p>Conselheiros, C-Level, especialistas em escala e em código.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 25: TIME -->
+<section class="slide" data-audience="all" data-slide="25">
+  <div class="container">
+    <p class="kicker">Quem está por trás</p>
+    <h2 class="h-display">Time pequeno por escolha. <span class="hl">IA multiplica a operação.</span></h2>
+    <div class="grid-2">
+      <div class="hero-card">
+        <h3 class="card-h">Tharine — fundadora</h3>
+        <p>Criou a Reengenharia Digital antes da Grape virar empresa. Implementa, opera, vende e treina cada agente novo.</p>
+        <ul class="checklist">
+          <li>Estratégia digital + IA aplicada na prática</li>
+          <li>Agentes em produção real, gerando vendas</li>
+          <li>Squads especializados (advisory, c-level, copy, storytelling, hormozi)</li>
+        </ul>
+      </div>
+      <div class="hero-card hero-card--accent">
+        <h3 class="card-h">Estrutura</h3>
+        <p>Tharine + 1 ou 2 pessoas + IA bem orquestrada = produtividade de um time de 5.</p>
+        <ul class="checklist">
+          <li>Cockpit interno com agentes resolvendo o trabalho repetitivo</li>
+          <li>Tudo documentado — Tharine pode tirar férias</li>
+          <li>Conhecimento mora no sistema, não só na cabeça dela</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 26: COMPETIÇÃO -->
+<section class="slide slide--deep" data-audience="all" data-slide="26" data-tags="investor,partner">
+  <div class="container">
+    <p class="kicker">Onde a Grape ganha</p>
+    <h2 class="h-display">Comparação direta.</h2>
+    <table class="comp-table">
+      <thead>
+        <tr><th></th><th>Plataformas SaaS<br><span class="th-sub">Wati, Gupshup, Botpenguin</span></th><th>Microsoft Copilot</th><th class="us">Grape AI</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Modelo</td><td>"Monte sozinho"</td><td>Licença enterprise</td><td class="us"><strong>Implementação + operação</strong></td></tr>
+        <tr><td>Templates por vertical</td><td>Genéricos</td><td>Pra grandes empresas</td><td class="us"><strong>Curados em PT-BR</strong></td></tr>
+        <tr><td>Mostra ROI em reais</td><td>Só volume</td><td>Demais pra PME</td><td class="us"><strong>Sim. Por cliente. Ao vivo.</strong></td></tr>
+        <tr><td>Compliance Meta 2026</td><td>Você se vira</td><td>Saiu do WhatsApp</td><td class="us"><strong>Embutido</strong></td></tr>
+        <tr><td>Copiloto pro gestor</td><td>Não tem foco</td><td>Saiu do WhatsApp</td><td class="us"><strong>Diferencial em PT-BR</strong></td></tr>
+        <tr><td>Conecta seu ERP/CRM</td><td>Genérico</td><td>Stack Microsoft</td><td class="us"><strong>Customizado pra cada cliente</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SLIDE 27: DIFERENCIAIS -->
+<section class="slide" data-audience="all" data-slide="27">
+  <div class="container">
+    <p class="kicker">Por que escolher a Grape</p>
+    <h2 class="h-display">5 razões pra <em>não ser mais um chatbot</em>.</h2>
+    <div class="diff-grid">
+      <div class="diff"><span>01</span><h3>ROI em reais</h3><p>Mostramos R$, não mensagens.</p></div>
+      <div class="diff"><span>02</span><h3>A gente fica</h3><p>Não entrega e some. Vive dentro do seu negócio mês a mês.</p></div>
+      <div class="diff"><span>03</span><h3>Reorganizamos antes de automatizar</h3><p>IA em cima de caos só multiplica caos.</p></div>
+      <div class="diff"><span>04</span><h3>Compliance embutido</h3><p>Meta 2026 + LGPD desde o primeiro dia.</p></div>
+      <div class="diff"><span>05</span><h3>Sem vendor lock</h3><p>Tudo open-source. Cliente nunca fica refém.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 28: RISCOS -->
+<section class="slide slide--dark" data-audience="investor" data-slide="28">
+  <div class="container">
+    <p class="kicker">Honestidade · investidores</p>
+    <h2 class="h-display">O que pode dar errado — e o que estamos fazendo.</h2>
+    <div class="risk-grid">
+      <div class="risk">
+        <span class="risk-label">Risco</span><h3>Querer virar SaaS antes da hora</h3>
+        <span class="risk-label">Mitigação</span><p>Decidido por escrito: serviço, não software empacotado. Só reconsidero quando 5+ implementações forem realmente repetíveis.</p>
+      </div>
+      <div class="risk">
+        <span class="risk-label">Risco</span><h3>Empresa depender só da Tharine</h3>
+        <span class="risk-label">Mitigação</span><p>Fase 1 inteira é dedicada a tirar conhecimento da cabeça e colocar no sistema. Critério de saída: Tharine offline 1 semana sem ruptura.</p>
+      </div>
+      <div class="risk">
+        <span class="risk-label">Risco</span><h3>Vender promessa de ROI sem provar</h3>
+        <span class="risk-label">Mitigação</span><p>Atribuição em reais é não-negociável. Cliente sem o sistema de venda → conversa não entra.</p>
+      </div>
+      <div class="risk">
+        <span class="risk-label">Risco</span><h3>Atender vertical demais e não dominar nenhuma</h3>
+        <span class="risk-label">Mitigação</span><p>Foco máximo em 2 verticais por 6 meses. Imobiliária só entra como caso isolado se fechar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 29: ASK INVESTIDORES -->
+<section class="slide slide--ask" data-audience="investor" data-slide="29">
+  <div class="container">
+    <p class="kicker kicker--ask">O Pedido · investidores</p>
+    <h2 class="h-display">Procuro parceiros que entendam <em>negócio de serviço</em>.</h2>
+    <div class="ask-grid">
+      <div class="ask-card">
+        <h3>O que a Grape oferece</h3>
+        <ul>
+          <li>Operação enxuta (2–3 pessoas) com margem &gt;80%</li>
+          <li>Recorrência forte — cliente paga 24+ meses</li>
+          <li>Caso âncora público com ROI ao vivo</li>
+          <li>Ferramentas open-source — zero dependência de fornecedor</li>
+        </ul>
+      </div>
+      <div class="ask-card ask-card--main">
+        <h3>O que a Grape pede</h3>
+        <ul>
+          <li>Capital pra acelerar a fase de aquisição</li>
+          <li>Network nos verticais (restaurante, café, imobiliária)</li>
+          <li>Operadores experientes em modelo de serviços</li>
+        </ul>
+        <p class="ask-cta">Vamos conversar sobre formato (equity, advisory, sponsorship).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 30: ASK PARCEIROS -->
+<section class="slide slide--ask" data-audience="partner" data-slide="30">
+  <div class="container">
+    <p class="kicker kicker--ask">O Pedido · parceiros</p>
+    <h2 class="h-display">Quero sinergia, não substituição.</h2>
+    <div class="ask-grid">
+      <div class="ask-card">
+        <h3>Onde fazemos sentido juntos</h3>
+        <ul>
+          <li>Agências digitais que querem oferecer IA sem construir tudo</li>
+          <li>Consultorias com clientes PME</li>
+          <li>Integradores de ERP que precisam de camada de IA</li>
+          <li>Associações verticais (sindicatos, comunidades)</li>
+        </ul>
+      </div>
+      <div class="ask-card ask-card--main">
+        <h3>Modelos de parceria</h3>
+        <ul>
+          <li>White-label ou co-branded em casos selecionados</li>
+          <li>Comissão por indicação fechada</li>
+          <li>Co-criação de templates em verticais novas</li>
+        </ul>
+        <p class="ask-cta">Vamos conversar sobre como nossos clientes se complementam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 31: ASK CLIENTES -->
+<section class="slide slide--ask" data-audience="client" data-slide="31">
+  <div class="container">
+    <p class="kicker kicker--ask">O Próximo Passo · clientes</p>
+    <h2 class="h-display">Como a gente começa.</h2>
+    <div class="ask-grid">
+      <div class="ask-card">
+        <h3>1ª reunião — 60 minutos</h3>
+        <ul>
+          <li>A gente mapeia seu processo atual e onde tá perdendo</li>
+          <li>Identifica onde a IA destrava o maior valor</li>
+          <li>Estimativa de pacote, prazo e retorno esperado</li>
+        </ul>
+      </div>
+      <div class="ask-card ask-card--main">
+        <h3>Em 7 dias após contrato</h3>
+        <ul>
+          <li>Agente no ar atendendo cliente real</li>
+          <li>Integrado com seus sistemas existentes</li>
+          <li>Compliance configurado</li>
+          <li>Dashboard de retorno ativo no mês 2</li>
+        </ul>
+        <p class="ask-cta">Reserve 60 minutos. Sem compromisso, sem cobrança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 32: CONTATO -->
+<section class="slide slide--final" data-audience="all" data-slide="32">
+  <div class="cover-bg"></div>
+  <div class="cover-content">
+    <div class="cover-logo-wrap">
+      <img src="assets/grape-logo.png" alt="Grape AI" class="cover-logo">
+    </div>
+    <h2 class="cover-title">Vamos <span class="accent">conversar</span>.</h2>
+    <p class="cover-tagline">A IA que vira processo. Não a que vira mais um app.</p>
+    <div class="contact-block">
+      <div class="contact-row"><span class="contact-label">Tharine</span><span>Fundadora</span></div>
+      <div class="contact-row"><span class="contact-label">WhatsApp</span><span>(adicionar)</span></div>
+      <div class="contact-row"><span class="contact-label">Email</span><span>(adicionar)</span></div>
+      <div class="contact-row"><span class="contact-label">Site</span><span>grape.ai</span></div>
+    </div>
+    <p class="cover-meta">Obrigada · 2026</p>
+  </div>
+</section>
+
+</main>
+
+<script src="deck.js"></script>
+</body>
+</html>
