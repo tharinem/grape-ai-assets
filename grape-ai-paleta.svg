@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <title>Grape AI — Paleta de Cores</title>
+  <rect width="900" height="520" fill="#F5F5F7"/>
+
+  <!-- título -->
+  <text x="40" y="44" font-family="Inter,sans-serif" font-size="13" font-weight="500" letter-spacing="0.08em" fill="#888899">GRAPE AI — PALETA DE CORES</text>
+
+  <!-- ── PALETA PRINCIPAL ── -->
+  <text x="40" y="78" font-family="Inter,sans-serif" font-size="10" letter-spacing="0.07em" fill="#AAAAAA">PALETA PRINCIPAL</text>
+
+  <!-- Obsidiana -->
+  <rect x="40"  y="88" width="130" height="100" rx="10" fill="#0A0A0F"/>
+  <text x="52"  y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#9988BB">Obsidiana</text>
+  <text x="52"  y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#9988BB">#0A0A0F</text>
+  <text x="52"  y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#665577">--grape-obsidiana</text>
+
+  <!-- Deep -->
+  <rect x="182" y="88" width="130" height="100" rx="10" fill="#1E1528"/>
+  <text x="194" y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#9988BB">Deep</text>
+  <text x="194" y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#9988BB">#1E1528</text>
+  <text x="194" y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#665577">--grape-deep</text>
+
+  <!-- Primary -->
+  <rect x="324" y="88" width="130" height="100" rx="10" fill="#7B5EA7"/>
+  <text x="336" y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#F0E8FF">Primary</text>
+  <text x="336" y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#F0E8FF">#7B5EA7</text>
+  <text x="336" y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#DDD0FF">--grape-primary</text>
+
+  <!-- Light -->
+  <rect x="466" y="88" width="130" height="100" rx="10" fill="#B48FE0"/>
+  <text x="478" y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#3A2060">Light</text>
+  <text x="478" y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#3A2060">#B48FE0</text>
+  <text x="478" y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#5A3A80">--grape-light</text>
+
+  <!-- Lavanda -->
+  <rect x="608" y="88" width="130" height="100" rx="10" fill="#E8E0F7"/>
+  <text x="620" y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#3A2060">Lavanda</text>
+  <text x="620" y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#3A2060">#E8E0F7</text>
+  <text x="620" y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#5A3A80">--grape-lavanda</text>
+
+  <!-- Off-white -->
+  <rect x="750" y="88" width="110" height="100" rx="10" fill="#F5F5F7" stroke="#E0E0E3" stroke-width="1"/>
+  <text x="762" y="164" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#0A0A0F">Off-white</text>
+  <text x="762" y="178" font-family="Inter,monospace,sans-serif" font-size="10" fill="#0A0A0F">#F5F5F7</text>
+  <text x="762" y="190" font-family="Inter,monospace,sans-serif" font-size="9" fill="#888899">--grape-offwhite</text>
+
+  <!-- ── VERDE ── -->
+  <text x="40" y="222" font-family="Inter,sans-serif" font-size="10" letter-spacing="0.07em" fill="#AAAAAA">VERDE — CAULE E FOLHA</text>
+
+  <rect x="40"  y="232" width="185" height="90" rx="10" fill="#1A3D1A"/>
+  <text x="52"  y="296" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#9DE89D">Green dark</text>
+  <text x="52"  y="310" font-family="Inter,monospace,sans-serif" font-size="10" fill="#9DE89D">#1A3D1A</text>
+  <text x="52"  y="322" font-family="Inter,monospace,sans-serif" font-size="9" fill="#4A7A4A">--grape-green-dark</text>
+
+  <rect x="240" y="232" width="185" height="90" rx="10" fill="#3B8A3E"/>
+  <text x="252" y="296" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#C8F0C8">Green</text>
+  <text x="252" y="310" font-family="Inter,monospace,sans-serif" font-size="10" fill="#C8F0C8">#3B8A3E</text>
+  <text x="252" y="322" font-family="Inter,monospace,sans-serif" font-size="9" fill="#8AC88A">--grape-green</text>
+
+  <rect x="440" y="232" width="185" height="90" rx="10" fill="#4CAF50"/>
+  <text x="452" y="296" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#173404">Green light</text>
+  <text x="452" y="310" font-family="Inter,monospace,sans-serif" font-size="10" fill="#173404">#4CAF50</text>
+  <text x="452" y="322" font-family="Inter,monospace,sans-serif" font-size="9" fill="#2A5A10">--grape-green-light</text>
+
+  <!-- ── SEMÂNTICAS ── -->
+  <text x="40" y="358" font-family="Inter,sans-serif" font-size="10" letter-spacing="0.07em" fill="#AAAAAA">SEMÂNTICAS — ALIASES</text>
+
+  <rect x="40"  y="368" width="125" height="80" rx="10" fill="#0A0A0F"/>
+  <text x="52"  y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#9988BB">bg-dark</text>
+  <text x="52"  y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#665577">--color-bg-dark</text>
+
+  <rect x="178" y="368" width="125" height="80" rx="10" fill="#1E1528"/>
+  <text x="190" y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#9988BB">bg-surface</text>
+  <text x="190" y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#665577">--color-bg-surface</text>
+
+  <rect x="316" y="368" width="125" height="80" rx="10" fill="#F5F5F7" stroke="#E0E0E3" stroke-width="1"/>
+  <text x="328" y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#0A0A0F">bg-light</text>
+  <text x="328" y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#888899">--color-bg-light</text>
+
+  <rect x="454" y="368" width="125" height="80" rx="10" fill="#7B5EA7"/>
+  <text x="466" y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#F0E8FF">primary</text>
+  <text x="466" y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#DDD0FF">--color-primary</text>
+
+  <rect x="592" y="368" width="125" height="80" rx="10" fill="#B48FE0"/>
+  <text x="604" y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#3A2060">accent</text>
+  <text x="604" y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#5A3A80">--color-accent</text>
+
+  <rect x="730" y="368" width="130" height="80" rx="10" fill="#E8E0F7"/>
+  <text x="742" y="422" font-family="Inter,sans-serif" font-size="11" font-weight="500" fill="#3A2060">subtle</text>
+  <text x="742" y="436" font-family="Inter,monospace,sans-serif" font-size="9" fill="#5A3A80">--color-subtle</text>
+
+  <!-- ── PROGRESSÃO ── -->
+  <text x="40" y="476" font-family="Inter,sans-serif" font-size="10" letter-spacing="0.07em" fill="#AAAAAA">PROGRESSÃO COMPLETA</text>
+
+  <rect x="40"  y="486" width="138" height="16" fill="#0A0A0F" rx="0"/>
+  <rect x="178" y="486" width="138" height="16" fill="#1E1528" rx="0"/>
+  <rect x="316" y="486" width="138" height="16" fill="#7B5EA7" rx="0"/>
+  <rect x="454" y="486" width="138" height="16" fill="#B48FE0" rx="0"/>
+  <rect x="592" y="486" width="138" height="16" fill="#E8E0F7" rx="0"/>
+  <rect x="730" y="486" width="130" height="16" fill="#F5F5F7" stroke="#E0E0E3" stroke-width="0.5" rx="0"/>
+
+  <!-- arredondar pontas da progressão -->
+  <rect x="40"  y="486" width="6"   height="16" fill="#0A0A0F" rx="0"/>
+  <rect x="855" y="486" width="5"   height="16" fill="#F5F5F7"/>
+</svg>
