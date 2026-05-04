@@ -26,6 +26,7 @@
     <button data-audience="investor" class="aud-btn">Investidores</button>
     <button data-audience="partner" class="aud-btn">Parceiros</button>
     <button data-audience="client" class="aud-btn">Clientes</button>
+    <button data-audience="hotmilk" class="aud-btn">Hotmilk · 5min</button>
   </nav>
   <div class="counter"><span id="counter-current">1</span><span class="counter__sep">/</span><span id="counter-total">32</span></div>
 </header>
@@ -34,7 +35,7 @@
 <main id="deck">
 
 <!-- SLIDE 1: COVER -->
-<section class="slide slide--cover" data-audience="all" data-slide="1">
+<section class="slide slide--cover" data-audience="all" data-tags="hotmilk" data-slide="1">
   <div class="cover-bg"></div>
   <div class="cover-content">
     <div class="cover-logo-wrap">
@@ -72,7 +73,7 @@
 </section>
 
 <!-- SLIDE 3: PROBLEMA -->
-<section class="slide" data-audience="all" data-slide="3">
+<section class="slide" data-audience="all" data-tags="hotmilk" data-slide="3">
   <div class="container">
     <p class="kicker">O Problema</p>
     <h2 class="h-display">São 22h. Um cliente manda mensagem. <em>Ninguém responde.</em></h2>
@@ -98,7 +99,7 @@
 </section>
 
 <!-- SLIDE 4: O INSIGHT -->
-<section class="slide slide--dark" data-audience="all" data-slide="4">
+<section class="slide slide--dark" data-audience="all" data-tags="hotmilk" data-slide="4">
   <div class="container split">
     <div>
       <p class="kicker">A virada de chave</p>
@@ -321,31 +322,52 @@
 <section class="slide slide--moat" data-audience="all" data-slide="12">
   <div class="container">
     <p class="kicker">O que ninguém mais entrega</p>
-    <h2 class="h-display">Não mostramos <span class="strike">"1.247 mensagens trocadas"</span>.<br>Mostramos <span class="hl">R$ 47 mil em vendas atribuídas</span>.</h2>
+    <h2 class="h-display">Não mostramos <span class="strike">"1.247 mensagens trocadas"</span>.<br>Mostramos <span class="hl">vendas atribuídas, em reais</span>.</h2>
     <p class="lede max-2col">Esta é a diferença entre vender promessa e vender resultado. Cada conversa do agente é registrada. Cada venda fechada volta amarrada à conversa que a originou. <strong>A gente mostra exatamente quanto cada agente vendeu, em reais.</strong></p>
     <div class="roi-mockup">
       <div class="roi-card">
-        <span class="roi-label">Vendas atribuídas · este mês</span>
-        <span class="roi-big" data-counter="47832" data-prefix="R$ ">R$ 47.832</span>
-        <span class="roi-trend">↑ 23% em relação ao mês passado</span>
-      </div>
-      <div class="roi-card roi-card--alt">
-        <span class="roi-label">Custo do agente</span>
-        <span class="roi-big" data-counter="1240" data-prefix="R$ ">R$ 1.240</span>
-        <span class="roi-trend">38× de retorno sobre o custo</span>
-      </div>
-      <div class="roi-card roi-card--alt">
-        <span class="roi-label">Qualidade média</span>
-        <span class="roi-big" data-counter="87" data-suffix="%">87<span class="roi-unit">%</span></span>
-        <span class="roi-trend">qualifica + atende + converte</span>
+        <span class="roi-label">Caso âncora público · em construção</span>
+        <span class="roi-big">Quintal Brincante</span>
+        <span class="roi-trend">Dashboard ROI ao vivo · junho/2026</span>
       </div>
     </div>
-    <p class="footnote">Exemplo do dashboard que cada cliente recebe. Os números mudam por cliente, em tempo real.</p>
+    <p class="footnote">Nosso primeiro dashboard público entra no ar com o caso âncora. Os números reais — em reais — vão estar abertos pra qualquer um conferir.</p>
+  </div>
+</section>
+
+<!-- SLIDE 12.5: TRAÇÃO REAL (visível pra investidor + pitch hotmilk 5min) -->
+<section class="slide" data-audience="investor" data-tags="hotmilk" data-slide="12.5">
+  <div class="container">
+    <p class="kicker">Tração · investidores</p>
+    <h2 class="h-display">2 clientes pagando hoje. <span class="hl">10 em 12 meses.</span> Pricing dobrou entre o 1º e o 2º.</h2>
+    <div class="ue-grid">
+      <div class="ue">
+        <span class="ue-label">Quintal Brincante (piloto)</span>
+        <span class="ue-num">R$ 4k setup + R$ 250/mês</span>
+        <span class="footnote">Em fase final de teste · ao ar junho/2026</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Feito Chocolate (fechando mai/26)</span>
+        <span class="ue-num">R$ 5k setup + R$ 2k/mês</span>
+        <span class="footnote">Mesma metodologia, pricing mais maduro</span>
+      </div>
+      <div class="ue ue--accent">
+        <span class="ue-label">Pricing alvo a partir do próximo</span>
+        <span class="ue-num">R$ 5-8k + R$ 3-6k/mês</span>
+        <span class="footnote">Aprendizado real virou piso</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Projeção realista 12 meses</span>
+        <span class="ue-num">10 clientes · MRR R$ 34k</span>
+        <span class="footnote">Cenário base do plano de metas</span>
+      </div>
+    </div>
+    <p class="footnote">Não somos pré-receita. Somos pré-escala. Setup acumulado R$ 9k pago, MRR R$ 2,25k entrando — e o aprendizado de pricing entre cliente 1 e 2 já validou que dá pra cobrar mais.</p>
   </div>
 </section>
 
 <!-- SLIDE 13: POR QUE AGORA -->
-<section class="slide" data-audience="all" data-slide="13">
+<section class="slide" data-audience="all" data-tags="hotmilk" data-slide="13">
   <div class="container">
     <p class="kicker">Por que agora — e não daqui a 2 anos</p>
     <h2 class="h-display">Em janeiro de 2026, a Meta mudou as regras do WhatsApp.</h2>
@@ -649,7 +671,7 @@
 </section>
 
 <!-- SLIDE 25: TIME -->
-<section class="slide" data-audience="all" data-slide="25">
+<section class="slide" data-audience="all" data-tags="hotmilk" data-slide="25">
   <div class="container">
     <p class="kicker">Quem está por trás</p>
     <h2 class="h-display">Time pequeno por escolha. <span class="hl">A IA multiplica a operação.</span></h2>
@@ -739,30 +761,94 @@
 </section>
 
 <!-- SLIDE 29: ASK INVESTIDORES -->
-<section class="slide slide--ask" data-audience="investor" data-slide="29">
+<section class="slide slide--ask" data-audience="investor" data-tags="hotmilk" data-slide="29">
   <div class="container">
     <p class="kicker kicker--ask">O Pedido · investidores</p>
-    <h2 class="h-display">Procuramos parceiros que entendam <em>negócio de serviço</em>.</h2>
+    <h2 class="h-display"><span class="hl">R$ 120 mil</span>. 12 meses de runway. Foco no que ninguém mais paga.</h2>
+    <p class="lede max-2col">Cheque pequeno, decisão grande. R$ 120k cobre 12 meses de runway sem contratação fixa — porque o investimento vai pra construir o time de IA interna que substitui contratação. Compatível com cheque único de anjo PF, ou split entre programa de aceleradora + anjo complementar.</p>
     <div class="ask-grid">
       <div class="ask-card">
-        <h3>O que a Grape oferece</h3>
+        <h3>Por quê esse número</h3>
         <ul>
-          <li>Operação enxuta (2 a 3 pessoas) com margem acima de 80%</li>
-          <li>Recorrência forte: cliente paga 24 meses ou mais</li>
-          <li>Caso de referência público com ROI em tempo real</li>
-          <li>Ferramentas open-source: zero dependência de fornecedor</li>
+          <li><strong>12 meses de runway</strong> com burn de ~R$ 10k/mês pós-investimento</li>
+          <li><strong>~44% sobre receita projetada de 12m</strong> (cenário realista R$ 270k) — defensável pra primeira rodada</li>
+          <li><strong>Compatível com Hotmilk + Anjo PF</strong> (ex: split R$ 50k programa + R$ 70k anjo)</li>
+          <li><strong>Faixa aceitável:</strong> R$ 100-150k. Abaixo não cabe a tese; acima força equity excessivo</li>
         </ul>
       </div>
       <div class="ask-card ask-card--main">
-        <h3>O que a Grape pede</h3>
+        <h3>Estrutura — flexível</h3>
         <ul>
-          <li>Capital para acelerar a fase de aquisição</li>
-          <li>Acesso à rede de contatos nos setores-alvo (restaurante, café, imobiliária)</li>
-          <li>Operadores experientes em modelo de serviços</li>
+          <li><strong>Equity puro</strong> — pré-money R$ 1,3-1,5M, % entregue 7,5-10%</li>
+          <li><strong>Mútuo conversível</strong> — cap R$ 1,5-2M, desconto 20%</li>
+          <li><strong>Combinação</strong> — equity para programa estratégico + conversível para anjo PF</li>
         </ul>
-        <p class="ask-cta">Podemos conversar sobre formato: equity, advisory ou sponsorship.</p>
+        <p class="ask-cta">A estrutura se adapta ao perfil do investidor. O número não.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SLIDE 29.1: USO DE FUNDS -->
+<section class="slide slide--dark" data-audience="investor" data-tags="hotmilk" data-slide="29.1">
+  <div class="container">
+    <p class="kicker">Uso de funds · investidores</p>
+    <h2 class="h-display"><span class="hl">0% pra salário fixo.</span> 40% pra construir o time de IA que substitui contratação.</h2>
+    <p class="lede max-2col">A tese da Grape é "não contrato, multiplico via IA". O uso de funds prova isso: o maior bucket vai pra construir os agentes internos que liberam a fundadora pra escalar — não pra folha de pagamento.</p>
+    <div class="ue-grid">
+      <div class="ue ue--accent">
+        <span class="ue-label">Time de IA Interna</span>
+        <span class="ue-num">40% · R$ 48k</span>
+        <span class="footnote">Claude API building + Langfuse + n8n + dev contractor pontual</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Aquisição</span>
+        <span class="ue-num">35% · R$ 42k</span>
+        <span class="footnote">Conteúdo, anúncios B2B, eventos setoriais, ferramentas de outbound</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Caso âncora público + ROI</span>
+        <span class="ue-num">15% · R$ 18k</span>
+        <span class="footnote">Dashboard público Quintal/Feito, página de cases, depoimentos</span>
+      </div>
+      <div class="ue">
+        <span class="ue-label">Reserva operacional</span>
+        <span class="ue-num">10% · R$ 12k</span>
+        <span class="footnote">Cushion de 4-5 meses de infra fixa</span>
+      </div>
+    </div>
+    <p class="footnote">O capital sai da fundadora pra empresa, não pra salário. Quando a Grape contratar — só quando o time de IA não cobrir mais — vai ser com receita, não com cheque de investidor.</p>
+  </div>
+</section>
+
+<!-- SLIDE 29.2: PAYBACK + RETORNO -->
+<section class="slide slide--ask" data-audience="investor" data-slide="29.2">
+  <div class="container">
+    <p class="kicker kicker--ask">Payback e retorno · investidores</p>
+    <h2 class="h-display">O cheque se paga em <span class="hl">~10 meses</span> de receita. O equity se paga no horizonte de 24-36 meses.</h2>
+    <div class="ask-grid">
+      <div class="ask-card">
+        <h3>Payback em receita (cenário realista)</h3>
+        <ul>
+          <li><strong>Mês 4-5:</strong> 4 clientes ativos · R$ 35k acumulados</li>
+          <li><strong>Mês 6:</strong> Time IA Interna v1 desbloqueia capacity</li>
+          <li><strong>Mês 8:</strong> 6 clientes · R$ 95k acumulados</li>
+          <li><strong>Mês 10:</strong> 8 clientes · <strong>R$ 135k → cheque pago</strong></li>
+          <li><strong>Mês 12:</strong> 10 clientes ativos · R$ 195k</li>
+        </ul>
+        <p class="ask-cta">Receita bruta cobre o cheque antes de fechar 12 meses.</p>
+      </div>
+      <div class="ask-card ask-card--main">
+        <h3>Retorno em equity (24-36 meses)</h3>
+        <ul>
+          <li><strong>Conservador</strong> (sem rodada seed): -45% — risco real, pre-seed paga</li>
+          <li><strong>Realista</strong> (capta seed em 24m, ARR R$ 600k, múltiplo 3x): <strong>+71% MoM (~2x)</strong></li>
+          <li><strong>Otimista</strong> (seed forte, 2ª vertical, ARR R$ 1M, múltiplo 4x): <strong>~3,8x</strong></li>
+        </ul>
+        <p class="ask-cta">Perfil compatível com pre-seed: 2x médio, 4x no upside, perda no downside.</p>
+      </div>
+    </div>
+    <p class="footnote">Honestidade é parte da tese. Investidor pre-seed que entende o risco entende esses números.</p>
   </div>
 </section>
 
