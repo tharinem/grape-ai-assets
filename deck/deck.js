@@ -7,48 +7,13 @@
 
   const deck = document.getElementById('deck');
   const slides = Array.from(document.querySelectorAll('.slide'));
-  const audButtons = Array.from(document.querySelectorAll('.aud-btn'));
   const counterCurrent = document.getElementById('counter-current');
   const counterTotal = document.getElementById('counter-total');
   const progressBar = document.getElementById('progress-bar');
 
-  let currentAudience = 'all';
-  let visibleSlides = slides;
-
-  /* ---------- Audience filter ---------- */
-  function applyAudience(audience) {
-    currentAudience = audience;
-
-    visibleSlides = slides.filter(s => {
-      const slideAud = s.dataset.audience || 'all';
-      const slideTags = (s.dataset.tags || '').split(',').map(t => t.trim()).filter(Boolean);
-
-      if (audience === 'all') return true;
-
-      // Pitch modes (curated): only slides explicitly tagged — no inheritance from 'all'
-      if (audience === 'hotmilk') {
-        return slideTags.includes('hotmilk');
-      }
-
-      if (slideAud === 'all') return true;
-      if (slideAud === audience) return true;
-      if (slideTags.includes(audience)) return true;
-      return false;
-    });
-
-    slides.forEach(s => {
-      s.classList.toggle('is-hidden', !visibleSlides.includes(s));
-    });
-
-    counterTotal.textContent = visibleSlides.length;
-    audButtons.forEach(b => b.classList.toggle('aud-btn--active', b.dataset.audience === audience));
-
-    updateProgress();
-  }
-
-  audButtons.forEach(btn => {
-    btn.addEventListener('click', () => applyAudience(btn.dataset.audience));
-  });
+  // Investor-only deck: no audience filter, all slides visible
+  const visibleSlides = slides;
+  counterTotal.textContent = visibleSlides.length;
 
   /* ---------- Progress + counter ---------- */
   function getCurrentSlideIndex() {
@@ -103,16 +68,7 @@
     }
   });
 
-  /* ---------- URL hash deep-link ---------- */
-  const url = new URL(window.location.href);
-  const initialAud = url.searchParams.get('audience');
-  if (initialAud && ['all', 'investor', 'partner', 'client', 'hotmilk'].includes(initialAud)) {
-    applyAudience(initialAud);
-  } else {
-    applyAudience('all');
-  }
-
-  counterTotal.textContent = visibleSlides.length;
+  /* ---------- Init ---------- */
   updateProgress();
 
   /* ---------- IntersectionObserver: slide animations + counters + bars ---------- */
