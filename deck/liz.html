@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0F">
+<title>Grape AI · Pra Liz</title>
+<link rel="icon" type="image/png" href="assets/grape-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Liz page — single-page scrollable infographic */
+  body {
+    background: #0A0A0F;
+    color: #F5F5F7;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .liz-section {
+    padding: 96px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .liz-section--deep {
+    background: linear-gradient(180deg, #0A0A0F 0%, #15101F 100%);
+  }
+  .liz-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .liz-section .kicker {
+    color: #BE82FA;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+  .liz-section .h-display {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .liz-section .h-display .hl {
+    background: linear-gradient(120deg, rgba(190,130,250,0.25), rgba(190,130,250,0.45));
+    padding: 0 6px;
+    border-radius: 4px;
+  }
+  .liz-section .lede {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: rgba(245,245,247,0.78);
+    line-height: 1.6;
+    margin: 24px 0 0;
+    max-width: 820px;
+  }
+  .liz-section .footnote {
+    font-size: 0.875rem;
+    color: rgba(245,245,247,0.5);
+    margin: 32px 0 0;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .accent {
+    color: #BE82FA;
+  }
+
+  /* HERO */
+  .liz-hero {
+    padding: 120px 0 96px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(190,130,250,0.08) 0%, transparent 60%);
+  }
+  .liz-hero .container {
+    max-width: 900px;
+  }
+  .liz-hero img {
+    width: 64px;
+    height: auto;
+    margin-bottom: 32px;
+  }
+  .liz-hero .h-display {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+  }
+  .liz-hero .lede {
+    margin: 32px auto 0;
+    text-align: left;
+  }
+
+  /* STATS */
+  .liz-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .liz-stat {
+    padding: 28px 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+  }
+  .liz-stat-num {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .liz-stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: rgba(245,245,247,0.6);
+    line-height: 1.4;
+  }
+
+  /* TABELA DE CENÁRIOS */
+  .liz-scenario-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+  .liz-scenario-table th,
+  .liz-scenario-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-align: left;
+  }
+  .liz-scenario-table th {
+    color: rgba(245,245,247,0.55);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .liz-scenario-table td:first-child {
+    color: rgba(245,245,247,0.7);
+    font-size: 0.9375rem;
+  }
+  .liz-scenario-table .col-realistic {
+    background: rgba(190,130,250,0.08);
+    font-weight: 600;
+    color: #F5F5F7;
+  }
+  .liz-scenario-table th.col-realistic {
+    color: #BE82FA;
+    font-weight: 700;
+  }
+
+  /* TIMELINE DE MARCOS */
+  .liz-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .liz-timeline-step {
+    padding: 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    border-top: 3px solid #BE82FA;
+  }
+  .liz-timeline-month {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    color: #BE82FA;
+    font-size: 0.8125rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .liz-timeline-step h4 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin: 4px 0 12px;
+    line-height: 1.3;
+  }
+  .liz-timeline-step p {
+    font-size: 0.875rem;
+    color: rgba(245,245,247,0.65);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* USO DE FUNDS */
+  .liz-funds {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .liz-fund {
+    display: grid;
+    grid-template-columns: 240px 1fr 120px;
+    gap: 24px;
+    align-items: center;
+    padding: 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+  }
+  .liz-fund--main {
+    background: rgba(190,130,250,0.08);
+    border-color: rgba(190,130,250,0.25);
+  }
+  .liz-fund-label {
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+  .liz-fund-label small {
+    display: block;
+    font-size: 0.8125rem;
+    color: rgba(245,245,247,0.55);
+    font-weight: 400;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .liz-fund-bar-wrap {
+    height: 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .liz-fund-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #BE82FA, #8E5DD8);
+    border-radius: 999px;
+  }
+  .liz-fund--main .liz-fund-bar {
+    background: linear-gradient(90deg, #D8AAFF, #BE82FA);
+  }
+  .liz-fund-value {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .liz-fund-value strong {
+    display: block;
+    font-size: 1.25rem;
+    color: #BE82FA;
+  }
+
+  @media (max-width: 720px) {
+    .liz-fund {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .liz-fund-value {
+      text-align: left;
+    }
+  }
+
+  /* PAYBACK */
+  .liz-payback {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .liz-payback-step {
+    padding: 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    position: relative;
+  }
+  .liz-payback-step--paid {
+    background: rgba(133,220,158,0.08);
+    border-color: rgba(133,220,158,0.3);
+  }
+  .liz-payback-step--paid::after {
+    content: "✓ cheque pago";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    color: #85DC9E;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .liz-payback-month {
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(245,245,247,0.6);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .liz-payback-num {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 8px 0;
+    letter-spacing: -0.02em;
+  }
+  .liz-payback-label {
+    font-size: 0.875rem;
+    color: rgba(245,245,247,0.65);
+    line-height: 1.4;
+  }
+
+  /* CLOSING */
+  .liz-closing {
+    text-align: center;
+    padding: 120px 0;
+    background: radial-gradient(ellipse at center, rgba(190,130,250,0.08) 0%, transparent 70%);
+  }
+  .liz-closing .container {
+    max-width: 800px;
+  }
+  .liz-closing-quote {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    line-height: 1.3;
+    font-weight: 500;
+    margin: 24px 0;
+    letter-spacing: -0.01em;
+  }
+  .liz-closing-quote em {
+    color: #BE82FA;
+    font-style: italic;
+  }
+  .liz-closing-author {
+    margin-top: 32px;
+    color: rgba(245,245,247,0.5);
+    font-size: 0.9375rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* MOBILE */
+  @media (max-width: 720px) {
+    .liz-section {
+      padding: 64px 0;
+    }
+    .liz-section .container {
+      padding: 0 20px;
+    }
+    .liz-hero {
+      padding: 80px 0 64px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="liz-section liz-hero">
+  <div class="container">
+    <img src="assets/grape-logo.png" alt="Grape AI">
+    <p class="kicker">Pra Liz</p>
+    <h1 class="h-display">Aqui é onde a Grape <span class="hl">está indo</span>.<br>E onde você entra.</h1>
+    <p class="lede">A gente já conversou sobre você entrar de fato. Antes de formalizar, queria te mostrar o quadro inteiro: onde estamos, pra onde vamos, e em que vai o investimento que estou buscando agora. Sem pressa. Lê com calma.</p>
+  </div>
+</section>
+
+<!-- ONDE A GENTE ESTÁ -->
+<section class="liz-section">
+  <div class="container">
+    <p class="kicker">Onde a gente está · maio/2026</p>
+    <h2 class="h-display">2 clientes pagando. <span class="hl">R$ 9 mil de setup recebido.</span> R$ 2.250 entrando todo mês.</h2>
+    <div class="liz-stats">
+      <div class="liz-stat">
+        <span class="liz-stat-num">2</span>
+        <span class="liz-stat-label">clientes pagantes<br>(Quintal + Feito Chocolate)</span>
+      </div>
+      <div class="liz-stat">
+        <span class="liz-stat-num">R$ 9k</span>
+        <span class="liz-stat-label">setup acumulado</span>
+      </div>
+      <div class="liz-stat">
+        <span class="liz-stat-num">R$ 2.250</span>
+        <span class="liz-stat-label">MRR fim de maio/2026</span>
+      </div>
+      <div class="liz-stat">
+        <span class="liz-stat-num">1</span>
+        <span class="liz-stat-label">fundadora ativa<br>(eu, sozinha)</span>
+      </div>
+    </div>
+    <p class="footnote">Não somos pré-receita. Setup pago + recorrência entrando. Mas ainda concentrada — 89% do MRR vem de 1 cliente. Esse é um dos pontos que precisa virar nos próximos 6 meses.</p>
+  </div>
+</section>
+
+<!-- ONDE A GENTE VAI ESTAR -->
+<section class="liz-section liz-section--deep">
+  <div class="container">
+    <p class="kicker">Onde a gente vai estar · maio/2027</p>
+    <h2 class="h-display">Em 12 meses: <span class="hl">10 clientes ativos. R$ 270 mil de receita.</span> Time de IA interna rodando.</h2>
+    <p class="lede">Trabalho com 3 cenários. O <strong>realista</strong> é a base de tudo — pricing, capacity, marcos. Conservador é o piso. Otimista exige tudo dar certo + você operando.</p>
+    <table class="liz-scenario-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Conservador</th>
+          <th class="col-realistic">Realista</th>
+          <th>Otimista</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Clientes ativos em 12 meses</td>
+          <td>6</td>
+          <td class="col-realistic">10</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>MRR final</td>
+          <td>R$ 18k</td>
+          <td class="col-realistic">R$ 34k</td>
+          <td>R$ 50k</td>
+        </tr>
+        <tr>
+          <td>Receita total 12 meses</td>
+          <td>~R$ 145k</td>
+          <td class="col-realistic">~R$ 270k</td>
+          <td>~R$ 390k</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="footnote">Pricing alvo a partir do próximo cliente: R$ 5–8k de setup + R$ 3–6k/mês. Quintal continua em R$ 250 (legado, primeiro cliente, aprendizado). Feito Chocolate entrou em R$ 2k/mês — mais perto do piso novo.</p>
+  </div>
+</section>
+
+<!-- 5 MARCOS -->
+<section class="liz-section">
+  <div class="container">
+    <p class="kicker">5 marcos no caminho</p>
+    <h2 class="h-display">O que precisa <span class="hl">virar realidade</span> nos próximos 12 meses.</h2>
+    <p class="lede">Não é só MRR e cliente. Tem 5 marcos que sustentam tudo. <strong>Você é parte direta de pelo menos 2 deles.</strong></p>
+    <div class="liz-timeline">
+      <div class="liz-timeline-step">
+        <span class="liz-timeline-month">junho/2026</span>
+        <h4>Caso âncora público</h4>
+        <p>Quintal Brincante com painel de ROI ao vivo, acessível por link.</p>
+      </div>
+      <div class="liz-timeline-step">
+        <span class="liz-timeline-month">julho/2026</span>
+        <h4>Cap table formalizado</h4>
+        <p>Sociedade no papel — você, eu, Claudia. Pré-requisito de qualquer captação.</p>
+      </div>
+      <div class="liz-timeline-step">
+        <span class="liz-timeline-month">outubro/2026</span>
+        <h4>Time de IA interna v1</h4>
+        <p>Agentes internos rodando. Capacity sobe de 5 → 7-9 clientes ativos.</p>
+      </div>
+      <div class="liz-timeline-step">
+        <span class="liz-timeline-month">dezembro/2026</span>
+        <h4>Canal de aquisição ativo</h4>
+        <p>Conteúdo + outbound trazendo ≥30% dos leads. Sai da dependência de indicação.</p>
+      </div>
+      <div class="liz-timeline-step">
+        <span class="liz-timeline-month">maio/2027</span>
+        <h4>Playbook 1ª vertical</h4>
+        <p>3+ clientes da mesma vertical com processo replicável documentado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USO DE FUNDS -->
+<section class="liz-section liz-section--deep">
+  <div class="container">
+    <p class="kicker">O investimento que estou buscando</p>
+    <h2 class="h-display"><span class="hl">R$ 120 mil</span>. 12 meses pra construir o que escala.</h2>
+    <p class="lede">Sem salário fixo. Sem contratar gente nova além de você. Cada real entra em algo que multiplica a operação. Cada bucket abaixo é uma decisão consciente.</p>
+    <div class="liz-funds">
+      <div class="liz-fund liz-fund--main">
+        <div class="liz-fund-label">Tecnologia & Infraestrutura<small>Hardware, máquinas, infra técnica e ferramentas de IA — pra escalar a operação sem contratar mais gente</small></div>
+        <div class="liz-fund-bar-wrap"><div class="liz-fund-bar" style="width:100%"></div></div>
+        <div class="liz-fund-value">40%<strong>R$ 48k</strong></div>
+      </div>
+      <div class="liz-fund">
+        <div class="liz-fund-label">Aquisição de clientes<small>Conteúdo, anúncios, eventos e ferramentas pra trazer cliente novo de forma previsível</small></div>
+        <div class="liz-fund-bar-wrap"><div class="liz-fund-bar" style="width:88%"></div></div>
+        <div class="liz-fund-value">35%<strong>R$ 42k</strong></div>
+      </div>
+      <div class="liz-fund">
+        <div class="liz-fund-label">Caso público de resultado<small>Construir o painel público que mostra o resultado dos clientes em reais, em tempo real</small></div>
+        <div class="liz-fund-bar-wrap"><div class="liz-fund-bar" style="width:38%"></div></div>
+        <div class="liz-fund-value">15%<strong>R$ 18k</strong></div>
+      </div>
+      <div class="liz-fund">
+        <div class="liz-fund-label">Reserva<small>Caixa de segurança pra absorver atrasos sem parar a operação</small></div>
+        <div class="liz-fund-bar-wrap"><div class="liz-fund-bar" style="width:25%"></div></div>
+        <div class="liz-fund-value">10%<strong>R$ 12k</strong></div>
+      </div>
+    </div>
+    <p class="footnote">A maioria das startups pede dinheiro pra contratar. A gente não. Os 40% de Tecnologia & Infra constroem o time de IA que substitui contratação fixa — esse é o diferencial que defendo no pitch.</p>
+  </div>
+</section>
+
+<!-- PAYBACK -->
+<section class="liz-section">
+  <div class="container">
+    <p class="kicker">Quando o cheque se paga</p>
+    <h2 class="h-display">Em <span class="hl">~10 meses</span>, a receita cobre o cheque inteiro.</h2>
+    <p class="lede">Cenário realista: 8-10 clientes ativos antes do fim do ano. A receita acumulada cobre os R$ 120k antes de fechar 12 meses.</p>
+    <div class="liz-payback">
+      <div class="liz-payback-step">
+        <span class="liz-payback-month">Mês 5</span>
+        <span class="liz-payback-num">R$ 35 mil</span>
+        <span class="liz-payback-label">4 clientes ativos · acumulado</span>
+      </div>
+      <div class="liz-payback-step">
+        <span class="liz-payback-month">Mês 8</span>
+        <span class="liz-payback-num">R$ 95 mil</span>
+        <span class="liz-payback-label">6 clientes · acumulado</span>
+      </div>
+      <div class="liz-payback-step liz-payback-step--paid">
+        <span class="liz-payback-month">Mês 10</span>
+        <span class="liz-payback-num">R$ 135 mil</span>
+        <span class="liz-payback-label">8 clientes ativos</span>
+      </div>
+      <div class="liz-payback-step">
+        <span class="liz-payback-month">Mês 12</span>
+        <span class="liz-payback-num">R$ 195 mil</span>
+        <span class="liz-payback-label">10 clientes · acumulado</span>
+      </div>
+    </div>
+    <p class="footnote">Receita bruta acumulada — cobre o cheque que entrou. O retorno em equity (pra quem investiu em troca de % da empresa) acontece depois, em 2–3 anos, com a próxima rodada.</p>
+  </div>
+</section>
+
+<!-- FECHAMENTO -->
+<section class="liz-section liz-closing">
+  <div class="container">
+    <p class="kicker">Pra fechar</p>
+    <p class="liz-closing-quote">Você não está olhando isso de fora. Está olhando o que <em>você vai ajudar a construir</em>.</p>
+    <p class="liz-closing-author">— Tharine</p>
+  </div>
+</section>
+
+</body>
+</html>
